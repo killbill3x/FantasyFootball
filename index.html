@@ -1,475 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>League of Extraordinary Sh!t Talkers - Hall of Fame</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #0b0f19; color: #f1f5f9; padding-bottom: 70px; }
-    header { background: #111827; border-bottom: 1px solid #1f2937; padding: 18px 14px; text-align: center; }
-    
-    .badge { 
-      display: inline-block; 
-      background: #eab308; 
-      color: #000; 
-      font-size: 11px; 
-      font-weight: 800; 
-      padding: 3px 10px; 
-      border-radius: 12px; 
-      margin-bottom: 6px; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px;
-    }
-    
-    h1 { font-size: 18px; font-weight: 900; color: #fff; }
-    p.sub { font-size: 12px; color: #94a3b8; margin-top: 3px; }
-    
-    /* Navigation Bar */
-    .nav-bar { display: flex; background: #1e293b; border-bottom: 1px solid #334155; overflow-x: auto; padding: 8px 10px; gap: 8px; }
-    .nav-btn { background: #0f172a; border: 1px solid #334155; color: #94a3b8; padding: 9px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
-    .nav-btn.active { background: #eab308; color: #000; border-color: #eab308; font-weight: 800; }
-
-    .container { padding: 14px; max-width: 650px; margin: 0 auto; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
-
-    .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 14px; }
-    .card-title { font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; color: #f59e0b; }
-    
-    /* Standings Table */
-    table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    th { text-align: left; padding: 8px 4px; color: #64748b; font-size: 10px; text-transform: uppercase; border-bottom: 1px solid #334155; }
-    td { padding: 10px 4px; border-bottom: 1px solid #1e293b; }
-    tr:nth-child(even) { background-color: #0f172a; }
-    .rk { width: 26px; font-weight: 800; color: #94a3b8; text-align: center; }
-    .team-name { font-weight: 700; color: #fff; }
-    .owner-sub { font-size: 10px; color: #94a3b8; display: block; }
-    .num { text-align: right; font-variant-numeric: tabular-nums; }
-    .playoff-row { background: rgba(234, 179, 8, 0.08) !important; }
-
-    /* Records */
-    .pos-filters { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 10px; }
-    .pos-pill { background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; }
-    .pos-pill.active { background: #eab308; color: #000; border-color: #eab308; }
-    .record-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #334155; }
-    .record-row:last-child { border-bottom: none; }
-    .p-tag { font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-right: 6px; }
-    .tag-qb { background: #ef4444; color: #fff; }
-    .tag-rb { background: #3b82f6; color: #fff; }
-    .tag-wr { background: #10b981; color: #fff; }
-    .tag-te { background: #f59e0b; color: #fff; }
-    .tag-dst { background: #8b5cf6; color: #fff; }
-    .tag-k { background: #ec4899; color: #fff; }
-    .p-name { font-size: 13px; font-weight: 700; color: #fff; }
-    .p-meta { font-size: 11px; color: #94a3b8; margin-top: 2px; }
-    .p-pts { font-size: 16px; font-weight: 900; color: #eab308; text-align: right; }
-    .p-bonus { font-size: 9px; color: #38bdf8; display: block; text-align: right; }
-
-    /* Receipts / Secret Upload */
-    .upload-box { background: #0f172a; border: 1px solid #3b82f6; border-radius: 8px; padding: 14px; margin-bottom: 16px; }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; }
-    .form-control { width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #fff; font-size: 13px; }
-    .btn { width: 100%; padding: 12px; font-weight: 800; border: none; border-radius: 6px; cursor: pointer; text-align: center; }
-    .btn-blue { background: #2563eb; color: #fff; }
-    .btn-red { background: #cc0000; color: #fff; }
-    .btn-outline { background: transparent; border: 1px solid #334155; color: #94a3b8; font-size: 11px; padding: 6px 10px; border-radius: 6px; }
-    .receipt-item { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
-    .receipt-item img { width: 100%; border-radius: 6px; margin-top: 8px; max-height: 420px; object-fit: contain; background: #000; }
-    .receipt-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #eab308; }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="badge">Est. 2011 • 10-Team PPR</div>
-    <h1>League of Extraordinary Sh!t Talkers</h1>
-    <p class="sub">Official League Archives, Trophy Room & Records</p>
-  </header>
-
-  <nav class="nav-bar">
-    <button class="nav-btn active" onclick="setTab('standings', this)">Standings</button>
-    <button class="nav-btn" onclick="handleReceiptTabClick(this)">📸 Receipts</button>
-    <button class="nav-btn" onclick="setTab('records', this)">Player Records</button>
-    <button class="nav-btn" onclick="setTab('champions', this)">Champions</button>
-    <button class="nav-btn" onclick="setTab('sync', this)">⚙️ ESPN Sync</button>
-  </nav>
-
-  <div class="container">
-
-    <!-- TAB 1: STANDINGS -->
-    <div id="tab-standings" class="tab-content active">
-      <div class="card">
-        <div class="card-title">
-          <span id="standings-title">League Standings</span>
-          <button class="btn-outline" onclick="setTab('sync', document.querySelectorAll('.nav-btn')[4])">⚙️ Update ESPN</button>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th class="rk">#</th>
-              <th>Team & Manager</th>
-              <th class="num">W-L</th>
-              <th class="num">PF</th>
-              <th class="num">PA</th>
-            </tr>
-          </thead>
-          <tbody id="standings-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TAB 2: RECEIPTS & SCREENSHOTS (Upload Button Hidden from Public) -->
-    <div id="tab-proofs" class="tab-content">
-      <div class="card">
-        <div class="card-title">
-          <span>📸 League Receipts & History</span>
-        </div>
-
-        <!-- Hidden Upload Box (Opens only if you double-tap the Receipts nav button) -->
-        <div id="upload-panel" class="upload-box" style="display:none;">
-          <div style="font-weight:800; font-size:13px; color:#38bdf8; margin-bottom:10px;">🔒 Commissioner Upload Box</div>
-          
-          <div class="form-group">
-            <label>Category</label>
-            <select id="img-category" class="form-control">
-              <option value="Matchup Box Score">Matchup Box Score</option>
-              <option value="Trash Talk Receipt">Trash Talk / Chat</option>
-              <option value="Historic Moment">Historic League Moment</option>
-              <option value="Championship Win">Championship Screenshot</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Select Screenshot</label>
-            <input type="file" id="img-file" accept="image/*" class="form-control" onchange="handleImagePick(event)">
-            <img id="img-preview" style="width:100%; max-height:200px; object-fit:contain; margin-top:8px; display:none; border-radius:6px;">
-          </div>
-
-          <div class="form-group">
-            <label>Caption / Notes</label>
-            <input type="text" id="img-notes" class="form-control" placeholder="e.g. Week 14 blowout, 60 pt game">
-          </div>
-
-          <button class="btn btn-blue" onclick="saveScreenshot()">Save Screenshot</button>
-        </div>
-
-        <div id="receipts-list"></div>
-      </div>
-    </div>
-
-    <!-- TAB 3: PLAYER RECORDS -->
-    <div id="tab-records" class="tab-content">
-      <div class="card">
-        <div class="card-title">Positional Single Game Highs (Since 2011)</div>
-
-        <div class="pos-filters">
-          <button class="pos-pill active" onclick="filterPos('all', this)">ALL</button>
-          <button class="pos-pill" onclick="filterPos('qb', this)">QB</button>
-          <button class="pos-pill" onclick="filterPos('rb', this)">RB</button>
-          <button class="pos-pill" onclick="filterPos('wr', this)">WR</button>
-          <button class="pos-pill" onclick="filterPos('te', this)">TE</button>
-          <button class="pos-pill" onclick="filterPos('dst', this)">D/ST</button>
-          <button class="pos-pill" onclick="filterPos('k', this)">K</button>
-        </div>
-
-        <div id="player-list">
-          <div class="record-row pos-item rb">
-            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Jamaal Charles</span><div class="p-meta">2013 • Week 15 vs OAK (5 TDs, 215 Yds)</div></div>
-            <div><div class="p-pts">64.50</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item wr">
-            <div><span class="p-tag tag-wr">WR</span><span class="p-name">Ja'Marr Chase</span><div class="p-meta">2021 • Week 17 vs KC (11 Rec, 266 Yds, 3 TDs)</div></div>
-            <div><div class="p-pts">61.60</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item wr">
-            <div><span class="p-tag tag-wr">WR</span><span class="p-name">Tyreek Hill</span><div class="p-meta">2020 • Week 12 vs TB (13 Rec, 269 Yds, 3 TDs)</div></div>
-            <div><div class="p-pts">60.90</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item rb">
-            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Alvin Kamara</span><div class="p-meta">2020 • Week 16 vs MIN (6 Rushing TDs)</div></div>
-            <div><div class="p-pts">59.20</div><span class="p-bonus">+3 Bonus (100+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item qb">
-            <div><span class="p-tag tag-qb">QB</span><span class="p-name">Peyton Manning</span><div class="p-meta">2013 • Week 1 vs BAL (7 Passing TDs, 462 Yds)</div></div>
-            <div><div class="p-pts">54.30</div><span class="p-bonus">+5 Bonus (400+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item qb">
-            <div><span class="p-tag tag-qb">QB</span><span class="p-name">Josh Allen</span><div class="p-meta">2024 • Week 14 vs LAR (6 Total TDs, 342 Yds)</div></div>
-            <div><div class="p-pts">52.80</div><span class="p-bonus">+3 Bonus (300+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item te">
-            <div><span class="p-tag tag-te">TE</span><span class="p-name">George Kittle</span><div class="p-meta">2018 • Week 14 vs DEN (7 Rec, 210 Yds, 1 TD)</div></div>
-            <div><div class="p-pts">41.00</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
-          </div>
-          <div class="record-row pos-item dst">
-            <div><span class="p-tag tag-dst">D/ST</span><span class="p-name">New England Patriots</span><div class="p-meta">2019 • Week 2 vs MIA (Shutout, 2 TDs, 7 Sacks)</div></div>
-            <div><div class="p-pts">37.00</div><span class="p-bonus">+Shutout</span></div>
-          </div>
-          <div class="record-row pos-item k">
-            <div><span class="p-tag tag-k">K</span><span class="p-name">Justin Tucker</span><div class="p-meta">2021 • Week 3 vs DET (66-yd Game Winner)</div></div>
-            <div><div class="p-pts">26.00</div><span class="p-bonus">+50yd Bonus</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 4: CHAMPIONS -->
-    <div id="tab-champions" class="tab-content">
-      <div class="card">
-        <div class="card-title">Championship Wall (Since 2011)</div>
-        <table>
-          <thead>
-            <tr><th>Year</th><th>Champion 👑</th><th>Runner Up</th></tr>
-          </thead>
-          <tbody>
-            <tr><td style="font-weight:800; color:#eab308;">2024</td><td><strong>Team Joe</strong></td><td>League Manager</td></tr>
-            <tr><td style="font-weight:800; color:#eab308;">2023</td><td><strong>League Manager</strong></td><td>Team Mario</td></tr>
-            <tr><td style="font-weight:800; color:#eab308;">2022</td><td><strong>League Manager</strong></td><td>Team Noah</td></tr>
-            <tr><td style="font-weight:800; color:#eab308;">2021</td><td><strong>Team Mario</strong></td><td>Team Joe</td></tr>
-            <tr><td style="font-weight:800; color:#eab308;">2020</td><td><strong>League Manager</strong></td><td>Team Kenya</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TAB 5: ESPN SYNC SETTINGS -->
-    <div id="tab-sync" class="tab-content">
-      <div class="card">
-        <div class="card-title">🏈 ESPN Live Standings Sync</div>
-        <p style="font-size:12px; color:#94a3b8; margin-bottom:14px; line-height:1.4;">
-          Sync real-time team names, records, points for, and points against from ESPN.
-        </p>
-
-        <div class="form-group">
-          <label>ESPN League ID</label>
-          <input type="text" id="espn-league-id" class="form-control" value="140046">
-        </div>
-
-        <div class="form-group">
-          <label>Season Year</label>
-          <input type="text" id="espn-season" class="form-control" value="2024">
-        </div>
-
-        <button class="btn btn-red" onclick="syncESPN()">⚡ Pull Live Standings from ESPN</button>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    // Tab Switching
-    function setTab(tabId, btn) {
-      var contents = document.getElementsByClassName('tab-content');
-      for (var i = 0; i < contents.length; i++) contents[i].classList.remove('active');
-      var buttons = document.getElementsByClassName('nav-btn');
-      for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('active');
-      document.getElementById('tab-' + tabId).classList.add('active');
-      if (btn) btn.classList.add('active');
-    }
-
-    // Double-tap Receipts button to reveal secret upload box
-    var lastReceiptTap = 0;
-    function handleReceiptTabClick(btn) {
-      var now = new Date().getTime();
-      setTab('proofs', btn);
-      if (now - lastReceiptTap < 400) {
-        var p = document.getElementById('upload-panel');
-        p.style.display = p.style.display === 'none' ? 'block' : 'none';
-      }
-      lastReceiptTap = now;
-    }
-
-    // Default Baseline Standings
-    var defaultTeams = [
-      { rk: 1, name: "Gridiron Elite 👑", owner: "Team Joe", w: 10, l: 4, pf: 1795.0, pa: 1640.4 },
-      { rk: 2, name: "#1 Seed Contender", owner: "League Manager", w: 11, l: 3, pf: 1842.6, pa: 1610.2 },
-      { rk: 3, name: "Show Me The Money", owner: "Team Mario", w: 9, l: 5, pf: 1720.8, pa: 1605.1 },
-      { rk: 4, name: "Touchdown Titans", owner: "Team Kenya", w: 8, l: 6, pf: 1680.4, pa: 1675.0 },
-      { rk: 5, name: "Red Zone Raiders", owner: "Team DeAnthony", w: 7, l: 7, pf: 1610.2, pa: 1630.5 },
-      { rk: 6, name: "The Blitz Brigade", owner: "Team Noah", w: 7, l: 7, pf: 1595.6, pa: 1620.0 },
-      { rk: 7, name: "Any Given Sunday", owner: "Team Pushkar", w: 6, l: 8, pf: 1550.4, pa: 1590.2 },
-      { rk: 8, name: "Endzone Extravaganza", owner: "Team Francisco", w: 5, l: 9, pf: 1510.0, pa: 1680.1 },
-      { rk: 9, name: "Fantasy Flukes", owner: "Team Matt", w: 4, l: 10, pf: 1480.2, pa: 1710.0 },
-      { rk: 10, name: "Sunday Best", owner: "Will Allen", w: 3, l: 11, pf: 1390.5, pa: 1780.4 }
-    ];
-
-    function renderStandings(teams) {
-      var tbody = document.getElementById('standings-tbody');
-      tbody.innerHTML = '';
-      teams.forEach(function(t, idx) {
-        var tr = document.createElement('tr');
-        if (idx < 4) tr.className = 'playoff-row';
-
-        tr.innerHTML = `
-          <td class="rk" style="${idx === 0 ? 'color:#eab308;' : ''}">${t.rk || (idx + 1)}</td>
-          <td>
-            <span class="team-name">${t.name}</span>
-            <span class="owner-sub">${t.owner}</span>
-          </td>
-          <td class="num" style="font-weight:700;">${t.w}-${t.l}${t.t ? '-' + t.t : ''}</td>
-          <td class="num">${Number(t.pf).toFixed(1)}</td>
-          <td class="num">${Number(t.pa).toFixed(1)}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // ESPN SYNC
-    async function syncESPN() {
-      var leagueId = document.getElementById('espn-league-id').value.trim();
-      var season = document.getElementById('espn-season').value.trim();
-
-      if (!leagueId) {
-        alert("Please enter a League ID.");
-        return;
-      }
-
-      var espnUrl = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mStandings&view=mSettings`;
-      var proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(espnUrl)}`;
-
-      try {
-        var res = await fetch(proxyUrl);
-        if (!res.ok) throw new Error("Could not reach ESPN. Check that league is Public.");
-        var data = await res.json();
-
-        var members = {};
-        if (data.members) {
-          data.members.forEach(function(m) {
-            members[m.id] = (m.firstName && m.lastName) ? (m.firstName + ' ' + m.lastName) : (m.displayName || "Manager");
-          });
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPNews | League of Extraordinary Sh!t Talkers - Fantasy Football Hall of Fame</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        espngreen: { 600: '#00b140', 700: '#008731' },
+                        gridiron: { 900: '#0b0f19', 950: '#05070a' },
+                        hofgold: { 400: '#fbbf24', 500: '#d97706', 600: '#b45309' }
+                    }
+                }
+            }
         }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .espn-ticker {
+            background: linear-gradient(90deg, #008731 0%, #00b140 50%, #008731 100%);
+        }
+        .hof-card {
+            background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+            border: 1px solid rgba(217, 119, 65, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(217, 119, 6, 0.1);
+        }
+        .gold-plate {
+            background: linear-gradient(135deg, #d97706 0%, #fbbf24 50%, #b45309 100%);
+        }
+    </style>
+</head>
+<body class="bg-gridiron-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+    
+    <!-- ESPN Top Live Ticker Bar -->
+    <div class="espn-ticker text-white text-xs font-bold py-1.5 px-4 overflow-hidden whitespace-nowrap flex items-center shadow-md">
+        <div class="bg-black/40 px-2 py-0.5 rounded uppercase tracking-wider text-[10px] mr-3 font-black text-amber-400 border border-amber-500/30 flex items-center">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping mr-1.5"></span> LIVE HOF UPDATE
+        </div>
+        <div class="inline-block animate-marquee tracking-wide text-slate-100 space-x-8">
+            <span>🏈 LEAGUE OF EXTRAORDINARY SH!T TALKERS • OFFICIAL ARCHIVES (2011–2025)</span> • 
+            <span>👑 BILLY MEHNERT LEADS WITH 5 CHAMPIONSHIPS ('11, '12, '20, '22, '25)</span> • 
+            <span>⚡ CALEB (ZIRK SQUAD) HOLDS MOST WEEKLY POINTS (213.62 PTS, WK 2 2022)</span> • 
+            <span>🔥 ZIRK SQUAD SETS ALL-TIME PLAYOFF RECORD (345.96 PTS, 2025)</span>
+        </div>
+    </div>
 
-        var parsed = data.teams.map(function(t) {
-          var name = t.name ? t.name : ((t.location || '') + ' ' + (t.nickname || '')).trim();
-          var owner = (t.owners && members[t.owners[0]]) ? members[t.owners[0]] : "Manager";
-          var rec = (t.record && t.record.overall) ? t.record.overall : { wins: 0, losses: 0, ties: 0, pointsFor: 0, pointsAgainst: 0 };
-          return {
-            name: name || "Team " + t.id,
-            owner: owner,
-            w: rec.wins,
-            l: rec.losses,
-            t: rec.ties || 0,
-            pf: rec.pointsFor,
-            pa: rec.pointsAgainst,
-            pct: rec.percentage || 0
-          };
-        });
+    <!-- Header / ESPN Studio Branding -->
+    <header class="bg-gridiron-900 border-b-4 border-espngreen-600 sticky top-0 z-50 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="bg-espngreen-600 text-white font-black italic tracking-tighter text-2xl sm:text-3xl px-3 py-1.5 rounded shadow-inner border border-green-400/30 flex items-center">
+                    ESP<span class="text-amber-400">N</span>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-black tracking-tight text-white uppercase italic flex items-center">
+                        League of Extraordinary Sh!t Talkers <span class="ml-2 text-xs bg-amber-500/20 text-amber-400 border border-amber-500/40 px-2 py-0.5 rounded not-italic font-bold">HOF PORTAL</span>
+                    </h1>
+                    <p class="text-[11px] text-slate-400 font-semibold tracking-wider uppercase">Official Fantasy Football Hall of Fame • Est. 2011</p>
+                </div>
+            </div>
+            <!-- Navigation Tabs -->
+            <nav class="hidden md:flex space-x-1 bg-black p-1.5 rounded-xl border border-slate-800">
+                <button onclick="switchTab('overview')" id="btn-overview" class="tab-btn px-4 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-all bg-espngreen-600 text-white shadow">Overview</button>
+                <button onclick="switchTab('records')" id="btn-records" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Team Records</button>
+                <button onclick="switchTab('players')" id="btn-players" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Player Records</button>
+                <button onclick="switchTab('leaderboard')" id="btn-leaderboard" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Leaderboard</button>
+                <button onclick="switchTab('h2h')" id="btn-h2h" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Head-to-Head</button>
+                <button onclick="switchTab('bylaws')" id="btn-bylaws" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Bylaws & Rules</button>
+            </nav>
+        </div>
+        <!-- Mobile Nav -->
+        <div class="md:hidden flex overflow-x-auto space-x-2 px-4 py-2 bg-black border-t border-slate-800 text-xs">
+            <button onclick="switchTab('overview')" id="m-btn-overview" class="whitespace-nowrap px-3 py-1.5 rounded font-black bg-espngreen-600 text-white">Overview</button>
+            <button onclick="switchTab('records')" id="m-btn-records" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Team Records</button>
+            <button onclick="switchTab('players')" id="m-btn-players" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Player Records</button>
+            <button onclick="switchTab('leaderboard')" id="m-btn-leaderboard" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Leaderboard</button>
+            <button onclick="switchTab('h2h')" id="m-btn-h2h" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Head-to-Head</button>
+            <button onclick="switchTab('bylaws')" id="m-btn-bylaws" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Bylaws</button>
+        </div>
+    </header>
 
-        parsed.sort(function(a, b) {
-          if (b.pct !== a.pct) return b.pct - a.pct;
-          return b.pf - a.pf;
-        });
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        
+        <!-- TAB 1: OVERVIEW -->
+        <section id="tab-overview" class="tab-content space-y-8">
+            <!-- Hero Banner / HOF Induction Wall -->
+            <div class="relative overflow-hidden rounded-3xl hof-card p-8 sm:p-12 shadow-2xl border-l-8 border-amber-500">
+                <div class="absolute -right-10 -bottom-10 text-amber-500 opacity-10 text-9xl pointer-events-none">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                </div>
+                <div class="relative z-10 max-w-2xl">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="gold-plate text-slate-950 text-xs font-black px-3 py-1 rounded uppercase tracking-widest shadow">HOF CLASS OF 2025</span>
+                        <span class="bg-espngreen-600 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider">15 Seasons Archived</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white italic tracking-tight uppercase">FANTASY FOOTBALL HALL OF FAME</h2>
+                    <p class="text-slate-300 mt-3 text-sm sm:text-base leading-relaxed">Welcome to Canton, fantasy style. The ultimate shrine honoring 15 years of gridiron supremacy, legendary championship dynasties, brutal last-place name changes, and historic matchups in the League of Extraordinary Sh!t Talkers.</p>
+                </div>
+            </div>
 
-        parsed[0].name += " 👑";
+            <!-- Quick Stats Grid (Audited Baseline) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-amber-500">
+                    <div class="text-amber-500 text-xl mb-2"><i class="fa-solid fa-crown"></i></div>
+                    <div class="text-2xl sm:text-3xl font-black text-white">5 Titles</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Championships (Billy Mehnert)</div>
+                </div>
+                <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-espngreen-600">
+                    <div class="text-espngreen-600 text-xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="text-2xl sm:text-3xl font-black text-white">213.62 pts</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Weekly Points (Caleb, Wk 2 2022)</div>
+                </div>
+                <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-amber-500">
+                    <div class="text-amber-500 text-xl mb-2"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="text-2xl sm:text-3xl font-black text-white">345.96 pts</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Playoff Points (Zirk Squad, '25)</div>
+                </div>
+                <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-espngreen-600">
+                    <div class="text-espngreen-600 text-xl mb-2"><i class="fa-solid fa-fire"></i></div>
+                    <div class="text-2xl sm:text-3xl font-black text-white">10–2</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Best Regular Season (Billy, 2022)</div>
+                </div>
+            </div>
 
-        localStorage.setItem('shittalkers_standings', JSON.stringify(parsed));
-        document.getElementById('standings-title').innerText = `${season} Standings (Live ESPN)`;
-        renderStandings(parsed);
-        alert(`Synced ${parsed.length} teams from ESPN for ${season}!`);
-        setTab('standings', document.querySelectorAll('.nav-btn')[0]);
+            <!-- Recent Champions Hall -->
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-lg font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-award text-amber-500 mr-2"></i> Lombardi Trophy Roll of Honor</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2025</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Texas Teabaggers</div>
+                            <div class="text-slate-400 text-xs">Billy Mehnert (5th Title)</div>
+                        </div>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2024</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Fin It to win It</div>
+                            <div class="text-slate-400 text-xs">Todd Ansel (2nd Title)</div>
+                        </div>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2023</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">PACKER BACKERS</div>
+                            <div class="text-slate-400 text-xs">Stephen Rathbun (2nd Title)</div>
+                        </div>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2022</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Texas Teabaggers</div>
+                            <div class="text-slate-400 text-xs">Billy Mehnert (4th Title)</div>
+                        </div>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2021</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">SHHHHH THECHAMPISHERE</div>
+                            <div class="text-slate-400 text-xs">CJ Bennett (1st Title)</div>
+                        </div>
+                    </div>
+                    <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
+                        <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2020</div>
+                        <div>
+                            <div class="text-white font-bold text-sm">Texas Teabaggers</div>
+                            <div class="text-slate-400 text-xs">Billy Mehnert (3rd Title)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      } catch (err) {
-        alert("ESPN Sync Error: " + err.message + "\n\nMake sure the league is set to Public in ESPN settings.");
-      }
-    }
+        <!-- TAB 2: TEAM RECORDS -->
+        <section id="tab-records" class="tab-content hidden space-y-6">
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-medal text-amber-500 mr-2"></i> All-Time Franchise Records & Milestones</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider bg-black">
+                                <th class="py-3 px-4">Record Category</th>
+                                <th class="py-3 px-4">Holder / Manager</th>
+                                <th class="py-3 px-4 text-right">Stat / Mark</th>
+                                <th class="py-3 px-4 text-center">Season</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-sm">
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Most Championships</td>
+                                <td class="py-4 px-4 text-slate-300">Billy Mehnert (Texas Teabaggers)</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">5 Titles</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2011, '12, '20, '22, '25</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Best Regular Season Record</td>
+                                <td class="py-4 px-4 text-slate-300">Billy Mehnert</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">10–2</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2022</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Worst Regular Season Record</td>
+                                <td class="py-4 px-4 text-slate-300">Will Allen</td>
+                                <td class="py-4 px-4 text-right font-black text-red-500">2–10</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2022</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Most PF in a Season</td>
+                                <td class="py-4 px-4 text-slate-300">Todd Ansel</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">1,786.56 PF</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2023</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Lowest PF in a Season</td>
+                                <td class="py-4 px-4 text-slate-300">Will Allen</td>
+                                <td class="py-4 px-4 text-right font-black text-red-500">915.00 PF</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2015</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Most PA in a Season</td>
+                                <td class="py-4 px-4 text-slate-300">Nick Pellicano</td>
+                                <td class="py-4 px-4 text-right font-black text-red-500">1,724.54 PA</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2022</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Most Weekly Points</td>
+                                <td class="py-4 px-4 text-slate-300">Caleb Walker (Zirk Squad)</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">213.62 pts</td>
+                                <td class="py-4 px-4 text-center text-slate-400">Week 2, 2022</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-4 px-4 font-bold text-white">Most Playoff Points</td>
+                                <td class="py-4 px-4 text-slate-300">Caleb Walker (Zirk Squad)</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">345.96 pts</td>
+                                <td class="py-4 px-4 text-center text-slate-400">Playoffs Round 1, 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-    // Photo Compressor & Save
-    var compressedBase64 = null;
-    function handleImagePick(event) {
-      var file = event.target.files[0];
-      if (!file) return;
+        <!-- TAB 3: PLAYER RECORDS & STAT LEADERS -->
+        <section id="tab-players" class="tab-content hidden space-y-6">
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-star text-amber-500 mr-2"></i> Player High Scores & Positional Records</h3>
+                <p class="text-slate-400 text-sm mb-6">Historical single-game positional peaks and standout individual performances tracked across league history.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- QB -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Quarterback (QB)</span>
+                            <span class="text-amber-500 font-black text-lg">56.88 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">Josh Allen</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 14, 2024</div>
+                    </div>
+                    <!-- RB -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Running Back (RB)</span>
+                            <span class="text-amber-500 font-black text-lg">61.30 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">De'Von Achane</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 3, 2023</div>
+                    </div>
+                    <!-- WR -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Wide Receiver (WR)</span>
+                            <span class="text-amber-500 font-black text-lg">65.40 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">Ja'Marr Chase</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 10, 2024</div>
+                    </div>
+                    <!-- TE -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Tight End (TE)</span>
+                            <span class="text-amber-500 font-black text-lg">44.90 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">T.J. Hockenson</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 4, 2022</div>
+                    </div>
+                    <!-- K -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Kicker (K)</span>
+                            <span class="text-amber-500 font-black text-lg">27.30 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">Chris Boswell</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 1, 2024</div>
+                    </div>
+                    <!-- D/ST -->
+                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Defense / ST</span>
+                            <span class="text-amber-500 font-black text-lg">35.00 pts</span>
+                        </div>
+                        <div class="text-white font-bold text-base">Dallas Cowboys D/ST</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 1, 2023</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        var img = new Image();
-        img.onload = function() {
-          var canvas = document.createElement('canvas');
-          var MAX_WIDTH = 900;
-          var scale = Math.min(MAX_WIDTH / img.width, 1);
-          canvas.width = img.width * scale;
-          canvas.height = img.height * scale;
+        <!-- TAB 4: CAREER LEADERBOARD -->
+        <section id="tab-leaderboard" class="tab-content hidden space-y-6">
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-list-ol text-amber-500 mr-2"></i> All-Time Career Regular Season Leaderboard (2011–2025)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider bg-black">
+                                <th class="py-3 px-4">Manager</th>
+                                <th class="py-3 px-4 text-center">Titles</th>
+                                <th class="py-3 px-4 text-right">Career PF</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 text-sm">
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-3 px-4 font-bold text-white">Billy Mehnert (Texas Teabaggers)</td>
+                                <td class="py-3 px-4 text-center text-amber-500 font-black">5 Titles</td>
+                                <td class="py-3 px-4 text-right">18,236.90</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-3 px-4 font-bold text-white">Chris Bilby (JOE BUCK YOURSELF)</td>
+                                <td class="py-3 px-4 text-center text-slate-400">0 Titles</td>
+                                <td class="py-3 px-4 text-right">19,313.88</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-3 px-4 font-bold text-white">Will Allen (Barely Gettin Bye)</td>
+                                <td class="py-3 px-4 text-center text-amber-500 font-bold">3 Titles</td>
+                                <td class="py-3 px-4 text-right">17,730.40</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-3 px-4 font-bold text-white">Justin Donahue (One GIANT Step)</td>
+                                <td class="py-3 px-4 text-center text-slate-400">0 Titles</td>
+                                <td class="py-3 px-4 text-right">18,714.92</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-          var ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        <!-- TAB 5: HEAD-TO-HEAD MATRIX -->
+        <section id="tab-h2h" class="tab-content hidden space-y-6">
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-handshake-angle text-amber-500 mr-2"></i> All-Time Head-to-Head Matrix</h3>
+                <p class="text-slate-400 text-sm mb-6">Lifetime regular season and postseason matchup records between league managers.</p>
+            </div>
+        </section>
 
-          compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
-          var preview = document.getElementById('img-preview');
-          preview.src = compressedBase64;
-          preview.style.display = 'block';
-        };
-        img.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
+        <!-- TAB 6: BYLAWS & RULES -->
+        <section id="tab-bylaws" class="tab-content hidden space-y-6">
+            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-scale-balanced text-amber-500 mr-2"></i> Official League Bylaws & Special Rules</h3>
+            </div>
+        </section>
 
-    function saveScreenshot() {
-      if (!compressedBase64) {
-        alert("Please select an image first!");
-        return;
-      }
+    </main>
 
-      var category = document.getElementById('img-category').value;
-      var notes = document.getElementById('img-notes').value || 'Box Score Receipt';
+    <!-- Footer -->
+    <footer class="bg-black border-t border-slate-800 py-8 mt-12 text-center text-xs text-slate-500">
+        <p class="font-bold text-slate-400">© 2011–2026 League of Extraordinary Sh!t Talkers. All Rights Reserved.</p>
+        <p class="mt-1">Broadcast Live from Studio X • Powered by Fully Audited Master League Archives (v62).</p>
+    </footer>
 
-      var saved = JSON.parse(localStorage.getItem('shittalkers_photos') || '[]');
-      saved.unshift({
-        category: category,
-        notes: notes,
-        img: compressedBase64,
-        date: new Date().toLocaleDateString()
-      });
+    <!-- JavaScript Tab Switching -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
 
-      localStorage.setItem('shittalkers_photos', JSON.stringify(saved));
-      alert("Screenshot added to Receipts feed!");
-      
-      compressedBase64 = null;
-      document.getElementById('img-file').value = '';
-      document.getElementById('img-notes').value = '';
-      document.getElementById('img-preview').style.display = 'none';
-      document.getElementById('upload-panel').style.display = 'none';
-      loadReceipts();
-    }
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
+            });
+            document.querySelectorAll('[id^="m-btn-"]').forEach(btn => {
+                btn.className = "whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400";
+            });
 
-    function loadReceipts() {
-      var container = document.getElementById('receipts-list');
-      var saved = JSON.parse(localStorage.getItem('shittalkers_photos') || '[]');
-      if (saved.length === 0) {
-        container.innerHTML = '<div style="font-size:12px; color:#64748b; text-align:center; padding:24px 0;">No receipts or screenshots in the archive yet.</div>';
-        return;
-      }
-      container.innerHTML = '';
-      saved.forEach(function(item) {
-        var div = document.createElement('div');
-        div.className = 'receipt-item';
-        div.innerHTML = `
-          <div class="receipt-header"><span>${item.category}</span><span style="color:#94a3b8; font-size:10px;">${item.date}</span></div>
-          <p style="font-size:12px; color:#e2e8f0; margin-top:5px;">${item.notes}</p>
-          <img src="${item.img}" alt="Receipt">
-        `;
-        container.appendChild(div);
-      });
-    }
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) activeBtn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-all bg-espngreen-600 text-white shadow";
 
-    // Position Filter
-    function filterPos(pos, btn) {
-      var pills = document.getElementsByClassName('pos-pill');
-      for (var i = 0; i < pills.length; i++) pills[i].classList.remove('active');
-      btn.classList.add('active');
-      var items = document.getElementsByClassName('pos-item');
-      for (var j = 0; j < items.length; j++) {
-        items[j].style.display = (pos === 'all' || items[j].classList.contains(pos)) ? 'flex' : 'none';
-      }
-    }
+            const activeMBtn = document.getElementById('m-btn-' + tabId);
+            if (activeMBtn) activeMBtn.className = "whitespace-nowrap px-3 py-1.5 rounded font-black bg-espngreen-600 text-white";
 
-    // Init
-    window.onload = function() {
-      var cached = localStorage.getItem('shittalkers_standings');
-      renderStandings(cached ? JSON.parse(cached) : defaultTeams);
-      loadReceipts();
-    };
-  </script>
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
