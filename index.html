@@ -6,10 +6,10 @@
   <title>League of Extraordinary Sh!t Talkers - Hall of Fame</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: #0b0f19; color: #f1f5f9; padding-bottom: 60px; }
+    body { background-color: #0b0f19; color: #f1f5f9; padding-bottom: 70px; }
     header { background: #111827; border-bottom: 1px solid #1f2937; padding: 18px 14px; text-align: center; }
     
-    .commish-badge { 
+    .badge { 
       display: inline-block; 
       background: #eab308; 
       color: #000; 
@@ -19,45 +19,41 @@
       border-radius: 12px; 
       margin-bottom: 6px; 
       text-transform: uppercase; 
-      cursor: pointer; 
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
+      letter-spacing: 0.5px;
     }
     
-    h1 { font-size: 19px; font-weight: 900; color: #fff; }
-    p.sub { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    h1 { font-size: 18px; font-weight: 900; color: #fff; }
+    p.sub { font-size: 12px; color: #94a3b8; margin-top: 3px; }
     
-    .nav-bar { display: flex; background: #1e293b; border-bottom: 1px solid #334155; overflow-x: auto; padding: 6px 8px; gap: 6px; }
-    .nav-btn { background: #0f172a; border: 1px solid #334155; color: #94a3b8; padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
+    /* Navigation Bar */
+    .nav-bar { display: flex; background: #1e293b; border-bottom: 1px solid #334155; overflow-x: auto; padding: 8px 10px; gap: 8px; }
+    .nav-btn { background: #0f172a; border: 1px solid #334155; color: #94a3b8; padding: 9px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
     .nav-btn.active { background: #eab308; color: #000; border-color: #eab308; font-weight: 800; }
-    #admin-nav-btn { display: none; background: #2563eb; color: #fff; border-color: #3b82f6; }
 
     .container { padding: 14px; max-width: 650px; margin: 0 auto; }
     .tab-content { display: none; }
     .tab-content.active { display: block; }
 
     .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 14px; margin-bottom: 14px; }
-    .card-title { font-size: 15px; font-weight: 800; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; color: #f59e0b; }
+    .card-title { font-size: 15px; font-weight: 800; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; color: #f59e0b; }
     
-    .punish-box { background: #450a0a; border: 1px solid #991b1b; border-radius: 8px; padding: 12px; margin-bottom: 14px; }
-    .punish-box h3 { font-size: 13px; font-weight: 800; color: #fca5a5; }
-    .punish-box p { font-size: 12px; color: #fecaca; margin-top: 4px; line-height: 1.4; }
-
+    /* Standings Table */
     table { width: 100%; border-collapse: collapse; font-size: 12px; }
     th { text-align: left; padding: 8px 4px; color: #64748b; font-size: 10px; text-transform: uppercase; border-bottom: 1px solid #334155; }
-    td { padding: 9px 4px; border-bottom: 1px solid #1e293b; }
+    td { padding: 10px 4px; border-bottom: 1px solid #1e293b; }
     tr:nth-child(even) { background-color: #0f172a; }
-    .rk { width: 24px; font-weight: 800; color: #94a3b8; text-align: center; }
+    .rk { width: 26px; font-weight: 800; color: #94a3b8; text-align: center; }
     .team-name { font-weight: 700; color: #fff; }
     .owner-sub { font-size: 10px; color: #94a3b8; display: block; }
     .num { text-align: right; font-variant-numeric: tabular-nums; }
-    .champ-row { background: rgba(234, 179, 8, 0.08) !important; }
-    .sacko-row { background: rgba(239, 68, 68, 0.12) !important; }
+    .playoff-row { background: rgba(234, 179, 8, 0.08) !important; }
 
+    /* Records */
     .pos-filters { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 10px; }
-    .pos-pill { background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 14px; cursor: pointer; flex-shrink: 0; }
+    .pos-pill { background: #0f172a; border: 1px solid #334155; color: #94a3b8; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 14px; cursor: pointer; flex-shrink: 0; }
     .pos-pill.active { background: #eab308; color: #000; border-color: #eab308; }
     .record-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #334155; }
+    .record-row:last-child { border-bottom: none; }
     .p-tag { font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-right: 6px; }
     .tag-qb { background: #ef4444; color: #fff; }
     .tag-rb { background: #3b82f6; color: #fff; }
@@ -69,38 +65,35 @@
     .p-meta { font-size: 11px; color: #94a3b8; margin-top: 2px; }
     .p-pts { font-size: 16px; font-weight: 900; color: #eab308; text-align: right; }
     .p-bonus { font-size: 9px; color: #38bdf8; display: block; text-align: right; }
-    .rule-note { font-size: 11px; background: #0f172a; border-left: 3px solid #38bdf8; padding: 8px; border-radius: 4px; margin-bottom: 12px; color: #cbd5e1; }
 
-    /* Receipts Card */
-    .receipt-item { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
-    .receipt-item img { width: 100%; border-radius: 6px; margin-top: 8px; max-height: 380px; object-fit: contain; background: #000; }
-    .receipt-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #eab308; }
-
-    /* Form Controls */
+    /* Receipts / Secret Upload */
+    .upload-box { background: #0f172a; border: 1px solid #3b82f6; border-radius: 8px; padding: 14px; margin-bottom: 16px; }
     .form-group { margin-bottom: 12px; }
     .form-group label { display: block; font-size: 11px; font-weight: 700; color: #94a3b8; margin-bottom: 4px; text-transform: uppercase; }
-    .form-control { width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: #fff; font-size: 13px; }
-    .btn-submit { width: 100%; padding: 12px; background: #2563eb; color: #fff; font-weight: 800; border: none; border-radius: 6px; cursor: pointer; margin-top: 8px; }
-    .btn-espn { background: #cc0000; color: #fff; }
-    #preview-img { width: 100%; max-height: 220px; object-fit: contain; margin-top: 10px; border-radius: 6px; display: none; }
+    .form-control { width: 100%; padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 6px; color: #fff; font-size: 13px; }
+    .btn { width: 100%; padding: 12px; font-weight: 800; border: none; border-radius: 6px; cursor: pointer; text-align: center; }
+    .btn-blue { background: #2563eb; color: #fff; }
+    .btn-red { background: #cc0000; color: #fff; }
+    .btn-outline { background: transparent; border: 1px solid #334155; color: #94a3b8; font-size: 11px; padding: 6px 10px; border-radius: 6px; }
+    .receipt-item { background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+    .receipt-item img { width: 100%; border-radius: 6px; margin-top: 8px; max-height: 420px; object-fit: contain; background: #000; }
+    .receipt-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #eab308; }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- Tap badge 3 times to unlock Commissioner controls -->
-    <div class="commish-badge" onclick="triggerSecretAuth()">Est. 2011 • ESPN 10-Team PPR</div>
-    <h1 id="league-title">League of Extraordinary Sh!t Talkers</h1>
+    <div class="badge">Est. 2011 • 10-Team PPR</div>
+    <h1>League of Extraordinary Sh!t Talkers</h1>
     <p class="sub">Official League Archives, Trophy Room & Records</p>
   </header>
 
   <nav class="nav-bar">
     <button class="nav-btn active" onclick="setTab('standings', this)">Standings</button>
+    <button class="nav-btn" onclick="handleReceiptTabClick(this)">📸 Receipts</button>
     <button class="nav-btn" onclick="setTab('records', this)">Player Records</button>
     <button class="nav-btn" onclick="setTab('champions', this)">Champions</button>
-    <button class="nav-btn" onclick="setTab('proofs', this)">📸 Receipts</button>
-    <button class="nav-btn" onclick="setTab('rules', this)">Sacko Rules</button>
-    <button id="admin-nav-btn" class="nav-btn" onclick="setTab('upload', this)">⚙️ Commish Panel</button>
+    <button class="nav-btn" onclick="setTab('sync', this)">⚙️ ESPN Sync</button>
   </nav>
 
   <div class="container">
@@ -109,8 +102,8 @@
     <div id="tab-standings" class="tab-content active">
       <div class="card">
         <div class="card-title">
-          <span id="standings-header-text">League Standings</span>
-          <span id="standings-sub-text" style="font-size:11px; color:#94a3b8;">Sync with ESPN</span>
+          <span id="standings-title">League Standings</span>
+          <button class="btn-outline" onclick="setTab('sync', document.querySelectorAll('.nav-btn')[4])">⚙️ Update ESPN</button>
         </div>
 
         <table>
@@ -123,25 +116,55 @@
               <th class="num">PA</th>
             </tr>
           </thead>
-          <tbody id="standings-tbody">
-            <!-- Populated via ESPN or stored data -->
-          </tbody>
+          <tbody id="standings-tbody"></tbody>
         </table>
-      </div>
-
-      <div class="punish-box">
-        <h3>💩 Regular Season Last Place Penalty</h3>
-        <p>Worst regular season record decides the penalty. Consolation bracket playoffs do not grant immunity!</p>
       </div>
     </div>
 
-    <!-- TAB 2: PLAYER RECORDS -->
+    <!-- TAB 2: RECEIPTS & SCREENSHOTS (Upload Button Hidden from Public) -->
+    <div id="tab-proofs" class="tab-content">
+      <div class="card">
+        <div class="card-title">
+          <span>📸 League Receipts & History</span>
+        </div>
+
+        <!-- Hidden Upload Box (Opens only if you double-tap the Receipts nav button) -->
+        <div id="upload-panel" class="upload-box" style="display:none;">
+          <div style="font-weight:800; font-size:13px; color:#38bdf8; margin-bottom:10px;">🔒 Commissioner Upload Box</div>
+          
+          <div class="form-group">
+            <label>Category</label>
+            <select id="img-category" class="form-control">
+              <option value="Matchup Box Score">Matchup Box Score</option>
+              <option value="Trash Talk Receipt">Trash Talk / Chat</option>
+              <option value="Historic Moment">Historic League Moment</option>
+              <option value="Championship Win">Championship Screenshot</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Select Screenshot</label>
+            <input type="file" id="img-file" accept="image/*" class="form-control" onchange="handleImagePick(event)">
+            <img id="img-preview" style="width:100%; max-height:200px; object-fit:contain; margin-top:8px; display:none; border-radius:6px;">
+          </div>
+
+          <div class="form-group">
+            <label>Caption / Notes</label>
+            <input type="text" id="img-notes" class="form-control" placeholder="e.g. Week 14 blowout, 60 pt game">
+          </div>
+
+          <button class="btn btn-blue" onclick="saveScreenshot()">Save Screenshot</button>
+        </div>
+
+        <div id="receipts-list"></div>
+      </div>
+    </div>
+
+    <!-- TAB 3: PLAYER RECORDS -->
     <div id="tab-records" class="tab-content">
       <div class="card">
         <div class="card-title">Positional Single Game Highs (Since 2011)</div>
-        <div class="rule-note">
-          <strong>League Bonuses Included:</strong> 300+/400+ passing, 100+/200+ rush/rec, 50+ yd FGs.
-        </div>
+
         <div class="pos-filters">
           <button class="pos-pill active" onclick="filterPos('all', this)">ALL</button>
           <button class="pos-pill" onclick="filterPos('qb', this)">QB</button>
@@ -154,7 +177,7 @@
 
         <div id="player-list">
           <div class="record-row pos-item rb">
-            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Jamaal Charles</span><div class="p-meta">2013 • Week 15 vs OAK (5 Total TDs, 215 Yds)</div></div>
+            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Jamaal Charles</span><div class="p-meta">2013 • Week 15 vs OAK (5 TDs, 215 Yds)</div></div>
             <div><div class="p-pts">64.50</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
           </div>
           <div class="record-row pos-item wr">
@@ -166,123 +189,271 @@
             <div><div class="p-pts">60.90</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
           </div>
           <div class="record-row pos-item rb">
-            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Alvin Kamara</span><div class="p-meta">2020 • Week 16 vs MIN (6 Rushing TDs, 155 Yds)</div></div>
+            <div><span class="p-tag tag-rb">RB</span><span class="p-name">Alvin Kamara</span><div class="p-meta">2020 • Week 16 vs MIN (6 Rushing TDs)</div></div>
             <div><div class="p-pts">59.20</div><span class="p-bonus">+3 Bonus (100+ yd)</span></div>
           </div>
           <div class="record-row pos-item qb">
             <div><span class="p-tag tag-qb">QB</span><span class="p-name">Peyton Manning</span><div class="p-meta">2013 • Week 1 vs BAL (7 Passing TDs, 462 Yds)</div></div>
             <div><div class="p-pts">54.30</div><span class="p-bonus">+5 Bonus (400+ yd)</span></div>
           </div>
+          <div class="record-row pos-item qb">
+            <div><span class="p-tag tag-qb">QB</span><span class="p-name">Josh Allen</span><div class="p-meta">2024 • Week 14 vs LAR (6 Total TDs, 342 Yds)</div></div>
+            <div><div class="p-pts">52.80</div><span class="p-bonus">+3 Bonus (300+ yd)</span></div>
+          </div>
           <div class="record-row pos-item te">
             <div><span class="p-tag tag-te">TE</span><span class="p-name">George Kittle</span><div class="p-meta">2018 • Week 14 vs DEN (7 Rec, 210 Yds, 1 TD)</div></div>
             <div><div class="p-pts">41.00</div><span class="p-bonus">+5 Bonus (200+ yd)</span></div>
           </div>
           <div class="record-row pos-item dst">
-            <div><span class="p-tag tag-dst">D/ST</span><span class="p-name">New England Patriots</span><div class="p-meta">2019 • Week 2 vs MIA (Shutout, 2 Int-TDs, 7 Sacks)</div></div>
-            <div><div class="p-pts">37.00</div><span class="p-bonus">+Shutout Bonus</span></div>
+            <div><span class="p-tag tag-dst">D/ST</span><span class="p-name">New England Patriots</span><div class="p-meta">2019 • Week 2 vs MIA (Shutout, 2 TDs, 7 Sacks)</div></div>
+            <div><div class="p-pts">37.00</div><span class="p-bonus">+Shutout</span></div>
+          </div>
+          <div class="record-row pos-item k">
+            <div><span class="p-tag tag-k">K</span><span class="p-name">Justin Tucker</span><div class="p-meta">2021 • Week 3 vs DET (66-yd Game Winner)</div></div>
+            <div><div class="p-pts">26.00</div><span class="p-bonus">+50yd Bonus</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 3: CHAMPIONS -->
+    <!-- TAB 4: CHAMPIONS -->
     <div id="tab-champions" class="tab-content">
       <div class="card">
-        <div class="card-title">Championship Wall</div>
-        <table id="champs-table">
+        <div class="card-title">Championship Wall (Since 2011)</div>
+        <table>
           <thead>
-            <tr><th>Year</th><th>Champion</th><th>Runner Up</th></tr>
+            <tr><th>Year</th><th>Champion 👑</th><th>Runner Up</th></tr>
           </thead>
           <tbody>
             <tr><td style="font-weight:800; color:#eab308;">2024</td><td><strong>Team Joe</strong></td><td>League Manager</td></tr>
             <tr><td style="font-weight:800; color:#eab308;">2023</td><td><strong>League Manager</strong></td><td>Team Mario</td></tr>
             <tr><td style="font-weight:800; color:#eab308;">2022</td><td><strong>League Manager</strong></td><td>Team Noah</td></tr>
+            <tr><td style="font-weight:800; color:#eab308;">2021</td><td><strong>Team Mario</strong></td><td>Team Joe</td></tr>
+            <tr><td style="font-weight:800; color:#eab308;">2020</td><td><strong>League Manager</strong></td><td>Team Kenya</td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- TAB 4: RECEIPTS / ARCHIVES -->
-    <div id="tab-proofs" class="tab-content">
+    <!-- TAB 5: ESPN SYNC SETTINGS -->
+    <div id="tab-sync" class="tab-content">
       <div class="card">
-        <div class="card-title">📸 League Receipts & History</div>
-        <div id="receipts-container"></div>
-      </div>
-    </div>
-
-    <!-- TAB 5: SACKO RULES -->
-    <div id="tab-rules" class="tab-content">
-      <div class="card">
-        <div class="card-title">💩 The Sacko & Punishment Bylaws</div>
-        <p style="font-size:12px; color:#cbd5e1; line-height:1.6; margin-bottom:10px;">
-          <strong>Rule 1: Regular Season Decides Last Place</strong><br>
-          Playoff consolation brackets do not count. The team with the worst regular season record is crowned Last Place.
+        <div class="card-title">🏈 ESPN Live Standings Sync</div>
+        <p style="font-size:12px; color:#94a3b8; margin-bottom:14px; line-height:1.4;">
+          Sync real-time team names, records, points for, and points against from ESPN.
         </p>
-        <p style="font-size:12px; color:#cbd5e1; line-height:1.6;">
-          <strong>Rule 2: Mandatory Rebrand Vote</strong><br>
-          The entire league votes on a new team name that the last place finisher must carry for the full next season.
-        </p>
-      </div>
-    </div>
 
-    <!-- TAB 6: COMMISSIONER ADMIN PANEL -->
-    <div id="tab-upload" class="tab-content">
-      <div class="card">
-        <div class="card-title">🏈 ESPN Live League Sync</div>
-        <p style="font-size:11px; color:#94a3b8; margin-bottom:12px;">Make sure your ESPN league is set to "Viewable to Public" in your ESPN league settings.</p>
-        
         <div class="form-group">
           <label>ESPN League ID</label>
-          <input type="text" id="espn-league-id" class="form-control" placeholder="e.g. 1827463">
+          <input type="text" id="espn-league-id" class="form-control" value="140046">
         </div>
+
         <div class="form-group">
           <label>Season Year</label>
           <input type="text" id="espn-season" class="form-control" value="2024">
         </div>
 
-        <button class="btn-submit btn-espn" onclick="syncESPN()">⚡ Pull Live ESPN Standings</button>
-
-        <hr style="border:0; border-top:1px solid #334155; margin: 20px 0;">
-
-        <div class="card-title">📸 Archive Screenshot</div>
-        <div class="form-group">
-          <label>Category</label>
-          <select id="upload-type" class="form-control">
-            <option value="Matchup Proof">Matchup / Box Score</option>
-            <option value="Sacko Punishment">Sacko Photo</option>
-            <option value="Trash Talk">Chat Screenshot</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Screenshot</label>
-          <input type="file" id="file-picker" accept="image/*" class="form-control" onchange="previewScreenshot(event)">
-          <img id="preview-img" alt="Preview">
-        </div>
-
-        <div class="form-group">
-          <label>Caption</label>
-          <input type="text" id="upload-notes" class="form-control" placeholder="Context / notes...">
-        </div>
-
-        <button class="btn-submit" onclick="processUpload()">Save Receipt</button>
+        <button class="btn btn-red" onclick="syncESPN()">⚡ Pull Live Standings from ESPN</button>
       </div>
     </div>
 
   </div>
 
   <script>
-    // Tab switching
+    // Tab Switching
     function setTab(tabId, btn) {
       var contents = document.getElementsByClassName('tab-content');
       for (var i = 0; i < contents.length; i++) contents[i].classList.remove('active');
       var buttons = document.getElementsByClassName('nav-btn');
       for (var j = 0; j < buttons.length; j++) buttons[j].classList.remove('active');
       document.getElementById('tab-' + tabId).classList.add('active');
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
     }
 
-    // Positional filtering
+    // Double-tap Receipts button to reveal secret upload box
+    var lastReceiptTap = 0;
+    function handleReceiptTabClick(btn) {
+      var now = new Date().getTime();
+      setTab('proofs', btn);
+      if (now - lastReceiptTap < 400) {
+        var p = document.getElementById('upload-panel');
+        p.style.display = p.style.display === 'none' ? 'block' : 'none';
+      }
+      lastReceiptTap = now;
+    }
+
+    // Default Baseline Standings
+    var defaultTeams = [
+      { rk: 1, name: "Gridiron Elite 👑", owner: "Team Joe", w: 10, l: 4, pf: 1795.0, pa: 1640.4 },
+      { rk: 2, name: "#1 Seed Contender", owner: "League Manager", w: 11, l: 3, pf: 1842.6, pa: 1610.2 },
+      { rk: 3, name: "Show Me The Money", owner: "Team Mario", w: 9, l: 5, pf: 1720.8, pa: 1605.1 },
+      { rk: 4, name: "Touchdown Titans", owner: "Team Kenya", w: 8, l: 6, pf: 1680.4, pa: 1675.0 },
+      { rk: 5, name: "Red Zone Raiders", owner: "Team DeAnthony", w: 7, l: 7, pf: 1610.2, pa: 1630.5 },
+      { rk: 6, name: "The Blitz Brigade", owner: "Team Noah", w: 7, l: 7, pf: 1595.6, pa: 1620.0 },
+      { rk: 7, name: "Any Given Sunday", owner: "Team Pushkar", w: 6, l: 8, pf: 1550.4, pa: 1590.2 },
+      { rk: 8, name: "Endzone Extravaganza", owner: "Team Francisco", w: 5, l: 9, pf: 1510.0, pa: 1680.1 },
+      { rk: 9, name: "Fantasy Flukes", owner: "Team Matt", w: 4, l: 10, pf: 1480.2, pa: 1710.0 },
+      { rk: 10, name: "Sunday Best", owner: "Will Allen", w: 3, l: 11, pf: 1390.5, pa: 1780.4 }
+    ];
+
+    function renderStandings(teams) {
+      var tbody = document.getElementById('standings-tbody');
+      tbody.innerHTML = '';
+      teams.forEach(function(t, idx) {
+        var tr = document.createElement('tr');
+        if (idx < 4) tr.className = 'playoff-row';
+
+        tr.innerHTML = `
+          <td class="rk" style="${idx === 0 ? 'color:#eab308;' : ''}">${t.rk || (idx + 1)}</td>
+          <td>
+            <span class="team-name">${t.name}</span>
+            <span class="owner-sub">${t.owner}</span>
+          </td>
+          <td class="num" style="font-weight:700;">${t.w}-${t.l}${t.t ? '-' + t.t : ''}</td>
+          <td class="num">${Number(t.pf).toFixed(1)}</td>
+          <td class="num">${Number(t.pa).toFixed(1)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ESPN SYNC
+    async function syncESPN() {
+      var leagueId = document.getElementById('espn-league-id').value.trim();
+      var season = document.getElementById('espn-season').value.trim();
+
+      if (!leagueId) {
+        alert("Please enter a League ID.");
+        return;
+      }
+
+      var espnUrl = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mStandings&view=mSettings`;
+      var proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(espnUrl)}`;
+
+      try {
+        var res = await fetch(proxyUrl);
+        if (!res.ok) throw new Error("Could not reach ESPN. Check that league is Public.");
+        var data = await res.json();
+
+        var members = {};
+        if (data.members) {
+          data.members.forEach(function(m) {
+            members[m.id] = (m.firstName && m.lastName) ? (m.firstName + ' ' + m.lastName) : (m.displayName || "Manager");
+          });
+        }
+
+        var parsed = data.teams.map(function(t) {
+          var name = t.name ? t.name : ((t.location || '') + ' ' + (t.nickname || '')).trim();
+          var owner = (t.owners && members[t.owners[0]]) ? members[t.owners[0]] : "Manager";
+          var rec = (t.record && t.record.overall) ? t.record.overall : { wins: 0, losses: 0, ties: 0, pointsFor: 0, pointsAgainst: 0 };
+          return {
+            name: name || "Team " + t.id,
+            owner: owner,
+            w: rec.wins,
+            l: rec.losses,
+            t: rec.ties || 0,
+            pf: rec.pointsFor,
+            pa: rec.pointsAgainst,
+            pct: rec.percentage || 0
+          };
+        });
+
+        parsed.sort(function(a, b) {
+          if (b.pct !== a.pct) return b.pct - a.pct;
+          return b.pf - a.pf;
+        });
+
+        parsed[0].name += " 👑";
+
+        localStorage.setItem('shittalkers_standings', JSON.stringify(parsed));
+        document.getElementById('standings-title').innerText = `${season} Standings (Live ESPN)`;
+        renderStandings(parsed);
+        alert(`Synced ${parsed.length} teams from ESPN for ${season}!`);
+        setTab('standings', document.querySelectorAll('.nav-btn')[0]);
+
+      } catch (err) {
+        alert("ESPN Sync Error: " + err.message + "\n\nMake sure the league is set to Public in ESPN settings.");
+      }
+    }
+
+    // Photo Compressor & Save
+    var compressedBase64 = null;
+    function handleImagePick(event) {
+      var file = event.target.files[0];
+      if (!file) return;
+
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var canvas = document.createElement('canvas');
+          var MAX_WIDTH = 900;
+          var scale = Math.min(MAX_WIDTH / img.width, 1);
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
+          var preview = document.getElementById('img-preview');
+          preview.src = compressedBase64;
+          preview.style.display = 'block';
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function saveScreenshot() {
+      if (!compressedBase64) {
+        alert("Please select an image first!");
+        return;
+      }
+
+      var category = document.getElementById('img-category').value;
+      var notes = document.getElementById('img-notes').value || 'Box Score Receipt';
+
+      var saved = JSON.parse(localStorage.getItem('shittalkers_photos') || '[]');
+      saved.unshift({
+        category: category,
+        notes: notes,
+        img: compressedBase64,
+        date: new Date().toLocaleDateString()
+      });
+
+      localStorage.setItem('shittalkers_photos', JSON.stringify(saved));
+      alert("Screenshot added to Receipts feed!");
+      
+      compressedBase64 = null;
+      document.getElementById('img-file').value = '';
+      document.getElementById('img-notes').value = '';
+      document.getElementById('img-preview').style.display = 'none';
+      document.getElementById('upload-panel').style.display = 'none';
+      loadReceipts();
+    }
+
+    function loadReceipts() {
+      var container = document.getElementById('receipts-list');
+      var saved = JSON.parse(localStorage.getItem('shittalkers_photos') || '[]');
+      if (saved.length === 0) {
+        container.innerHTML = '<div style="font-size:12px; color:#64748b; text-align:center; padding:24px 0;">No receipts or screenshots in the archive yet.</div>';
+        return;
+      }
+      container.innerHTML = '';
+      saved.forEach(function(item) {
+        var div = document.createElement('div');
+        div.className = 'receipt-item';
+        div.innerHTML = `
+          <div class="receipt-header"><span>${item.category}</span><span style="color:#94a3b8; font-size:10px;">${item.date}</span></div>
+          <p style="font-size:12px; color:#e2e8f0; margin-top:5px;">${item.notes}</p>
+          <img src="${item.img}" alt="Receipt">
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Position Filter
     function filterPos(pos, btn) {
       var pills = document.getElementsByClassName('pos-pill');
       for (var i = 0; i < pills.length; i++) pills[i].classList.remove('active');
@@ -293,62 +464,12 @@
       }
     }
 
-    // Triple-tap Commissioner access
-    var tapCount = 0;
-    var tapTimer = null;
-    function triggerSecretAuth() {
-      tapCount++;
-      clearTimeout(tapTimer);
-      tapTimer = setTimeout(function() { tapCount = 0; }, 1200);
-
-      if (tapCount === 3) {
-        tapCount = 0;
-        var pass = prompt("Commissioner Password:");
-        if (pass === "commish") {
-          document.getElementById('admin-nav-btn').style.display = 'block';
-          alert("Commissioner Unlocked!");
-          setTab('upload', document.getElementById('admin-nav-btn'));
-        } else if (pass !== null) {
-          alert("Incorrect password.");
-        }
-      }
-    }
-
-    // ESPN SYNC ENGINE
-    async function syncESPN() {
-      var leagueId = document.getElementById('espn-league-id').value.trim();
-      var season = document.getElementById('espn-season').value.trim();
-
-      if (!leagueId) {
-        alert("Please enter your ESPN League ID.");
-        return;
-      }
-
-      // Endpoint using CORS proxy
-      var espnUrl = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${season}/segments/0/leagues/${leagueId}?view=mTeam&view=mStandings&view=mSettings`;
-      var proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(espnUrl)}`;
-
-      try {
-        var res = await fetch(proxyUrl);
-        if (!res.ok) throw new Error("Could not reach ESPN. Ensure league is Public.");
-        var data = await res.json();
-
-        // Extract manager members
-        var membersMap = {};
-        if (data.members) {
-          data.members.forEach(m => {
-            membersMap[m.id] = (m.firstName && m.lastName) ? `${m.firstName} ${m.lastName}` : (m.displayName || 'Manager');
-          });
-        }
-
-        // Sort teams by standings rank
-        var teams = data.teams.map(t => {
-          var name = (t.location + " " + t.nickname).trim();
-          var ownerName = (t.owners && membersMap[t.owners[0]]) ? membersMap[t.owners[0]] : "Manager";
-          var record = t.record ? t.record.overall : { wins: 0, losses: 0, ties: 0, pointsFor: 0, pointsAgainst: 0 };
-          return {
-            name: name,
-            owner: ownerName,
-            wins: record.wins,
-            losses: record.losses,
-            ties: record.
+    // Init
+    window.onload = function() {
+      var cached = localStorage.getItem('shittalkers_standings');
+      renderStandings(cached ? JSON.parse(cached) : defaultTeams);
+      loadReceipts();
+    };
+  </script>
+</body>
+</html>
