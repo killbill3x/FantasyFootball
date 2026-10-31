@@ -65,7 +65,6 @@
                 <button onclick="switchTab('overview')" id="btn-overview" class="tab-btn px-4 py-2 rounded-lg text-sm font-black uppercase tracking-wider transition-all bg-espngreen-600 text-white shadow">Overview</button>
                 <button onclick="switchTab('records')" id="btn-records" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Team Records</button>
                 <button onclick="switchTab('players')" id="btn-players" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Player Records</button>
-                <button onclick="switchTab('leaderboard')" id="btn-leaderboard" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Leaderboard</button>
                 <button onclick="switchTab('h2h')" id="btn-h2h" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Head-to-Head</button>
                 <button onclick="switchTab('bylaws')" id="btn-bylaws" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Bylaws & Rules</button>
             </nav>
@@ -75,7 +74,6 @@
             <button onclick="switchTab('overview')" id="m-btn-overview" class="whitespace-nowrap px-3 py-1.5 rounded font-black bg-espngreen-600 text-white">Overview</button>
             <button onclick="switchTab('records')" id="m-btn-records" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Team Records</button>
             <button onclick="switchTab('players')" id="m-btn-players" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Player Records</button>
-            <button onclick="switchTab('leaderboard')" id="m-btn-leaderboard" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Leaderboard</button>
             <button onclick="switchTab('h2h')" id="m-btn-h2h" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Head-to-Head</button>
             <button onclick="switchTab('bylaws')" id="m-btn-bylaws" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Bylaws</button>
         </div>
@@ -247,15 +245,15 @@
                                 <th class="py-3 px-4">Record Category</th>
                                 <th class="py-3 px-4">Holder / Manager</th>
                                 <th class="py-3 px-4 text-right">Stat / Mark</th>
-                                <th class="py-3 px-4 text-center">Season</th>
+                                <th class="py-3 px-4 text-center">Season / Week</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-800 text-sm">
                             <tr class="hover:bg-slate-850/50">
                                 <td class="py-4 px-4 font-bold text-white">Most Championships</td>
                                 <td class="py-4 px-4 text-slate-300">Billy (Texas Teabaggers)</td>
-                                <td class="py-4 px-4 text-right font-black text-amber-500">5 Titles</td>
-                                <td class="py-4 px-4 text-center text-slate-400">2011, '12, '20, '22, '25</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">4 Titles</td>
+                                <td class="py-4 px-4 text-center text-slate-400">2011, 2012, 2020, 2022</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
                                 <td class="py-4 px-4 font-bold text-white">Best Regular Season Record</td>
@@ -270,19 +268,19 @@
                                 <td class="py-4 px-4 text-center text-slate-400">2022</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-4 px-4 font-bold text-white">Most PF in a Season</td>
+                                <td class="py-4 px-4 font-bold text-white">Most PF Season</td>
                                 <td class="py-4 px-4 text-slate-300">Todd</td>
                                 <td class="py-4 px-4 text-right font-black text-amber-500">1,786.56 PF</td>
                                 <td class="py-4 px-4 text-center text-slate-400">2023</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-4 px-4 font-bold text-white">Lowest PF in a Season</td>
+                                <td class="py-4 px-4 font-bold text-white">Lowest PF Season</td>
                                 <td class="py-4 px-4 text-slate-300">Will</td>
                                 <td class="py-4 px-4 text-right font-black text-red-500">915.00 PF</td>
                                 <td class="py-4 px-4 text-center text-slate-400">2015</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-4 px-4 font-bold text-white">Most PA in a Season</td>
+                                <td class="py-4 px-4 font-bold text-white">Most PA Season</td>
                                 <td class="py-4 px-4 text-slate-300">Nick</td>
                                 <td class="py-4 px-4 text-right font-black text-red-500">1,724.54 PA</td>
                                 <td class="py-4 px-4 text-center text-slate-400">2022</td>
@@ -295,9 +293,9 @@
                             </tr>
                             <tr class="hover:bg-slate-850/50">
                                 <td class="py-4 px-4 font-bold text-white">Most Playoff Points</td>
-                                <td class="py-4 px-4 text-slate-300">Caleb</td>
-                                <td class="py-4 px-4 text-right font-black text-amber-500">345.96 pts</td>
-                                <td class="py-4 px-4 text-center text-slate-400">Playoffs Round 1, 2025</td>
+                                <td class="py-4 px-4 text-slate-300">Justin</td>
+                                <td class="py-4 px-4 text-right font-black text-amber-500">324.72 pts</td>
+                                <td class="py-4 px-4 text-center text-slate-400">Round 3, 2024</td>
                             </tr>
                         </tbody>
                     </table>
@@ -447,10 +445,10 @@
                     <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
                         <div class="flex items-center justify-between mb-3">
                             <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Running Back (RB)</span>
-                            <span class="text-amber-500 font-black text-lg">61.30 pts</span>
+                            <span class="text-amber-500 font-black text-lg">65.40 pts</span>
                         </div>
-                        <div class="text-white font-bold text-base">De'Von Achane</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 3, 2023</div>
+                        <div class="text-white font-bold text-base">Jahmyr Gibbs</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 12, 2025</div>
                     </div>
                     <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
                         <div class="flex items-center justify-between mb-3">
@@ -463,10 +461,10 @@
                     <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
                         <div class="flex items-center justify-between mb-3">
                             <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Tight End (TE)</span>
-                            <span class="text-amber-500 font-black text-lg">44.90 pts</span>
+                            <span class="text-amber-500 font-black text-lg">48.30 pts</span>
                         </div>
-                        <div class="text-white font-bold text-base">T.J. Hockenson</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 4, 2022</div>
+                        <div class="text-white font-bold text-base">Brock Bowers</div>
+                        <div class="text-slate-400 text-xs mt-1">Week 9, 2025</div>
                     </div>
                     <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
                         <div class="flex items-center justify-between mb-3">
@@ -488,63 +486,12 @@
             </div>
         </section>
 
-        <!-- TAB 4: CAREER LEADERBOARD -->
-        <section id="tab-leaderboard" class="tab-content hidden space-y-6">
-            <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
-                <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-list-ol text-amber-500 mr-2"></i> Champions Career Leaderboard (Championship Holders Only)</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider bg-black">
-                                <th class="py-3 px-4">Manager</th>
-                                <th class="py-3 px-4 text-center">Championship Titles</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800 text-sm">
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Billy (Texas Teabaggers)</td>
-                                <td class="py-3 px-4 text-center text-amber-500 font-black">5 Titles</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Will (Barely Gettin Bye)</td>
-                                <td class="py-3 px-4 text-center text-amber-500 font-bold">3 Titles</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Stephen (PACKER BACKERS)</td>
-                                <td class="py-3 px-4 text-center text-amber-500 font-bold">2 Titles</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Todd (Fin It to win It)</td>
-                                <td class="py-3 px-4 text-center text-slate-400">1 Title</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">CJ (SHHHHH THECHAMPISHERE)</td>
-                                <td class="py-3 px-4 text-center text-slate-400">1 Title</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Walter (Adrian Beat his son)</td>
-                                <td class="py-3 px-4 text-center text-slate-400">1 Title</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Nick (Sayre MustangGT5.0)</td>
-                                <td class="py-3 px-4 text-center text-slate-400">1 Title</td>
-                            </tr>
-                            <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Brandon (Cruz Control)</td>
-                                <td class="py-3 px-4 text-center text-slate-400">1 Title</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 5: HEAD-TO-HEAD MATRIX -->
+        <!-- TAB 4: HEAD-TO-HEAD MATRIX -->
         <section id="tab-h2h" class="tab-content hidden space-y-6">
             <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
                 <div>
-                    <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-handshake-angle text-amber-500 mr-2"></i> All-Time Head-to-Head Comparison & Matrix</h3>
-                    <p class="text-slate-400 text-sm">Select any two managers below to instantly compare their lifetime matchup record, or view the complete 19-manager historical grid below.</p>
+                    <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-handshake-angle text-amber-500 mr-2"></i> All-Time Head-to-Head Comparison Tool</h3>
+                    <p class="text-slate-400 text-sm">Select any two managers below to instantly compare their lifetime regular season and postseason matchup record.</p>
                 </div>
 
                 <!-- Interactive Selector Tool -->
@@ -572,47 +519,10 @@
                     <div id="h2h-score-display" class="text-4xl sm:text-5xl font-black text-white italic tracking-tight my-2">8–6</div>
                     <div id="h2h-note-display" class="text-xs text-slate-300 font-medium">Regular Season & Postseason Battles Recorded Across League History</div>
                 </div>
-
-                <!-- Full 19x19 Matrix Table -->
-                <div class="mt-6">
-                    <h4 class="text-lg font-black uppercase italic text-white mb-4 flex items-center"><i class="fa-solid fa-table text-amber-500 mr-2"></i> Complete 19-Manager Head-to-Head Matrix (All Historical Owners)</h4>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                                <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-wider bg-black">
-                                    <th class="py-3 px-3 sticky left-0 bg-black z-10">Manager</th>
-                                    <th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Billy</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Brandon</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Brian</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Caleb</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Chris</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">CJ</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">John</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Justin</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Mark</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Matt</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Nick</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Rob</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Scott</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Stephen</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Tom</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Todd</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Tyler</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Wally</th><th class="py-3 px-2 text-center text-[10px] whitespace-nowrap text-slate-300">Will</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-800">
-                                <tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Billy</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Brandon</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Brian</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Caleb</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Chris</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">CJ</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">John</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Justin</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Mark</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Matt</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Nick</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Rob</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Scott</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Stephen</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Tom</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Todd</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Tyler</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Wally</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td></tr>
-<tr class="hover:bg-slate-850/50"><td class="py-2.5 px-3 font-bold text-white sticky left-0 bg-gridiron-900 text-xs whitespace-nowrap">Will</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">5–5</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">4–6</td><td class="py-2.5 px-2 text-center text-[11px] text-slate-300">—</td></tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </section>
 
-        <!-- TAB 6: BYLAWS & RULES -->
+        <!-- TAB 5: BYLAWS & RULES -->
         <section id="tab-bylaws" class="tab-content hidden space-y-6">
             <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
                 <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-scale-balanced text-amber-500 mr-2"></i> Official League Bylaws & Special Rules</h3>
@@ -670,8 +580,6 @@
                 el.classList.add('hidden');
             });
             // Show target tab content
-            const target = document.getElementById('tab- ' + tabId); // Wait, let's fix the ID selector string!
-            // Correct id selector:
             document.getElementById('tab-' + tabId).classList.remove('hidden');
 
             // Reset all tab buttons on desktop
@@ -699,10 +607,8 @@
         }
     </script>
 
-    
-
     <script>
-        // Full H2H record lookup table between all 19 historical managers
+        // Full H2H record lookup table between historical managers
         const h2hRecords = {
             "Billy": {"Will": "14–10", "Chris": "13–11", "Thomas": "13–11", "Justin": "14–10", "Stephen": "7–7", "CJ": "7–7", "Caleb": "5–3", "Todd": "9–7", "Wally": "5–5", "Nick": "5–3", "Brandon": "8–4", "Matt": "5–1", "Scott": "4–2", "John": "2–2", "Brian": "3–1", "Mark": "1–1", "Rob": "2–0", "Tyler": "2–0"},
             "Will": {"Billy": "10–14", "Chris": "11–13", "Thomas": "12–12", "Justin": "13–11", "Stephen": "7–7", "CJ": "6–8", "Caleb": "3–5", "Todd": "9–7", "Wally": "5–5", "Nick": "4–4", "Brandon": "9–5", "Matt": "4–0", "Scott": "3–2", "John": "2–1", "Brian": "2–1", "Mark": "0–1", "Rob": "1–0", "Tyler": "1–0"},
@@ -736,10 +642,10 @@
                 note.innerText = "Cannot compare a manager against themselves.";
             } else if (h2hRecords[m1] && h2hRecords[m1][m2]) {
                 display.innerText = h2hRecords[m1][m2];
-                note.innerText = m1 + " vs " + m2 + " — Regular Season & Postseason Battles Across 14 Seasons";
+                note.innerText = m1 + " vs " + m2 + " — Regular Season & Postseason Battles";
             } else {
-                display.innerText = "11–13";
-                note.innerText = m1 + " vs " + m2 + " — Historical Matchup Record";
+                display.innerText = "0–0";
+                note.innerText = "No recorded head-to-head matchups between " + m1 + " and " + m2;
             }
         }
         
