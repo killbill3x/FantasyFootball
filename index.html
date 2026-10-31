@@ -32,6 +32,28 @@
         .gold-plate {
             background: linear-gradient(135deg, #d97706 0%, #fbbf24 50%, #b45309 100%);
         }
+        .player-card {
+            background-image:
+                radial-gradient(ellipse at top right, rgba(212, 175, 55, 0.08), transparent 60%),
+                linear-gradient(to bottom right, #18181b, #09090b);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .player-card:hover {
+            transform: translateY(-2px);
+        }
+        .player-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.15);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .player-card:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-gridiron-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
@@ -148,7 +170,7 @@
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2019</div>
                         <div>
                             <div class="text-white font-bold text-sm">Adrian Beat his son</div>
-                            <div class="text-slate-400 text-xs">Wally (1st Title)</div>
+                            <div class="text-slate-400 text-xs">Walter (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
@@ -322,7 +344,7 @@
                         </thead>
                         <tbody class="divide-y divide-slate-800 text-sm">
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Gerald</td>
+                                <td class="py-3 px-4 font-bold text-white">Team Beat Dat Ass</td>
                                 <td class="py-3 px-4 text-center text-slate-300">10</td>
                                 <td class="py-3 px-4 text-center text-slate-300">2</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">13</td>
@@ -332,7 +354,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+330.00</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Todd</td>
+                                <td class="py-3 px-4 font-bold text-white">Fin It to win It</td>
                                 <td class="py-3 px-4 text-center text-slate-300">28</td>
                                 <td class="py-3 px-4 text-center text-slate-300">16</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">44</td>
@@ -342,7 +364,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+201.10</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Stephen</td>
+                                <td class="py-3 px-4 font-bold text-white">PACKER BACKERS</td>
                                 <td class="py-3 px-4 text-center text-slate-300">83</td>
                                 <td class="py-3 px-4 text-center text-slate-300">49</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">132</td>
@@ -352,7 +374,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+760.66</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Wally</td>
+                                <td class="py-3 px-4 font-bold text-white">Adrian Beat his son</td>
                                 <td class="py-3 px-4 text-center text-slate-300">41</td>
                                 <td class="py-3 px-4 text-center text-slate-300">25</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">66</td>
@@ -362,7 +384,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+452.44</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Mark</td>
+                                <td class="py-3 px-4 font-bold text-white">Bill n Tom are KnobGobblers</td>
                                 <td class="py-3 px-4 text-center text-slate-300">8</td>
                                 <td class="py-3 px-4 text-center text-slate-300">5</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">13</td>
@@ -372,7 +394,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+79.00</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Will</td>
+                                <td class="py-3 px-4 font-bold text-white">Barely Gettin Bye</td>
                                 <td class="py-3 px-4 text-center text-slate-300">96</td>
                                 <td class="py-3 px-4 text-center text-slate-300">70</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">176</td>
@@ -382,7 +404,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+496.38</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">CJ</td>
+                                <td class="py-3 px-4 font-bold text-white">SHHHHH THECHAMPISHERE</td>
                                 <td class="py-3 px-4 text-center text-slate-300">75</td>
                                 <td class="py-3 px-4 text-center text-slate-300">57</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">132</td>
@@ -392,7 +414,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+813.08</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Scott</td>
+                                <td class="py-3 px-4 font-bold text-white">Men In Black</td>
                                 <td class="py-3 px-4 text-center text-slate-300">27</td>
                                 <td class="py-3 px-4 text-center text-slate-300">21</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">48</td>
@@ -402,7 +424,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+249.00</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Chris</td>
+                                <td class="py-3 px-4 font-bold text-white">JOE BUCK YOURSELF</td>
                                 <td class="py-3 px-4 text-center text-slate-300">87</td>
                                 <td class="py-3 px-4 text-center text-slate-300">77</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">164</td>
@@ -412,7 +434,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+614.66</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Billy</td>
+                                <td class="py-3 px-4 font-bold text-white">Texas Teabaggers</td>
                                 <td class="py-3 px-4 text-center text-slate-300">85</td>
                                 <td class="py-3 px-4 text-center text-slate-300">78</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">163</td>
@@ -422,7 +444,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+714.46</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Nick</td>
+                                <td class="py-3 px-4 font-bold text-white">Zirk Squad</td>
                                 <td class="py-3 px-4 text-center text-slate-300">33</td>
                                 <td class="py-3 px-4 text-center text-slate-300">33</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">66</td>
@@ -432,7 +454,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+90.74</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Caleb</td>
+                                <td class="py-3 px-4 font-bold text-white">Zirk Squad</td>
                                 <td class="py-3 px-4 text-center text-slate-300">22</td>
                                 <td class="py-3 px-4 text-center text-slate-300">22</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">44</td>
@@ -442,7 +464,7 @@
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+292.47</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Justin</td>
+                                <td class="py-3 px-4 font-bold text-white">One GIANT Step</td>
                                 <td class="py-3 px-4 text-center text-slate-300">76</td>
                                 <td class="py-3 px-4 text-center text-slate-300">95</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">171</td>
@@ -452,7 +474,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-376.14</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Brandon</td>
+                                <td class="py-3 px-4 font-bold text-white">Cruz Control</td>
                                 <td class="py-3 px-4 text-center text-slate-300">33</td>
                                 <td class="py-3 px-4 text-center text-slate-300">46</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">79</td>
@@ -462,7 +484,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-297.20</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Tom</td>
+                                <td class="py-3 px-4 font-bold text-white">Cowboys and Illegal Aliens</td>
                                 <td class="py-3 px-4 text-center text-slate-300">66</td>
                                 <td class="py-3 px-4 text-center text-slate-300">99</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">165</td>
@@ -472,7 +494,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-1352.94</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">John</td>
+                                <td class="py-3 px-4 font-bold text-white">Secret Project #69</td>
                                 <td class="py-3 px-4 text-center text-slate-300">15</td>
                                 <td class="py-3 px-4 text-center text-slate-300">24</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">39</td>
@@ -482,7 +504,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-190.00</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Brian</td>
+                                <td class="py-3 px-4 font-bold text-white">Furious Hungry Cowboys</td>
                                 <td class="py-3 px-4 text-center text-slate-300">5</td>
                                 <td class="py-3 px-4 text-center text-slate-300">8</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">13</td>
@@ -492,7 +514,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-148.00</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Tyler</td>
+                                <td class="py-3 px-4 font-bold text-white">Japanese Ball Fondlers</td>
                                 <td class="py-3 px-4 text-center text-slate-300">2</td>
                                 <td class="py-3 px-4 text-center text-slate-300">9</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">11</td>
@@ -502,7 +524,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-422.88</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Matt</td>
+                                <td class="py-3 px-4 font-bold text-white">Jacksonville Jarheads</td>
                                 <td class="py-3 px-4 text-center text-slate-300">4</td>
                                 <td class="py-3 px-4 text-center text-slate-300">29</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">33</td>
@@ -512,7 +534,7 @@
                                 <td class="py-3 px-4 text-right font-black text-red-400">-773.82</td>
                             </tr>
                             <tr class="hover:bg-slate-850/50">
-                                <td class="py-3 px-4 font-bold text-white">Rob</td>
+                                <td class="py-3 px-4 font-bold text-white">TX ReFried BNRS BNR BOBS</td>
                                 <td class="py-3 px-4 text-center text-slate-300">1</td>
                                 <td class="py-3 px-4 text-center text-slate-300">10</td>
                                 <td class="py-3 px-4 text-center font-bold text-slate-200">11</td>
@@ -533,55 +555,9 @@
                 <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-star text-amber-500 mr-2"></i> Player High Scores & Positional Records</h3>
                 <p class="text-slate-400 text-sm mb-6">Historical single-game positional peaks and standout individual performances tracked across league history.</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Quarterback (QB)</span>
-                            <span class="text-amber-500 font-black text-lg">56.88 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Josh Allen</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 14, 2024</div>
-                    </div>
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Running Back (RB)</span>
-                            <span class="text-amber-500 font-black text-lg">65.40 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Jahmyr Gibbs</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 12, 2025</div>
-                    </div>
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Wide Receiver (WR)</span>
-                            <span class="text-amber-500 font-black text-lg">65.40 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Ja'Marr Chase</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 10, 2024</div>
-                    </div>
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Tight End (TE)</span>
-                            <span class="text-amber-500 font-black text-lg">48.30 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Brock Bowers</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 9, 2025</div>
-                    </div>
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Kicker (K)</span>
-                            <span class="text-amber-500 font-black text-lg">27.30 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Chris Boswell</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 1, 2024</div>
-                    </div>
-                    <div class="bg-black border border-slate-800 rounded-2xl p-5 shadow">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 text-xs font-black uppercase px-2.5 py-1 rounded">Defense / ST</span>
-                            <span class="text-amber-500 font-black text-lg">35.00 pts</span>
-                        </div>
-                        <div class="text-white font-bold text-base">Dallas Cowboys D/ST</div>
-                        <div class="text-slate-400 text-xs mt-1">Week 1, 2023</div>
-                    </div>
+                <!-- Responsive Grid Container populated by lightweight JS -->
+                <div id="player-records-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    <!-- Cards injected via JavaScript -->
                 </div>
             </div>
         </section>
@@ -599,7 +575,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 1</label>
                         <select id="mgr1-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Billy">Billy</option><option value="Brandon">Brandon</option><option value="Brian">Brian</option><option value="Caleb">Caleb</option><option value="Chris">Chris</option><option value="CJ">CJ</option><option value="John">John</option><option value="Justin">Justin</option><option value="Mark">Mark</option><option value="Matt">Matt</option><option value="Nick">Nick</option><option value="Rob">Rob</option><option value="Scott">Scott</option><option value="Stephen">Stephen</option><option value="Tom">Tom</option><option value="Todd">Todd</option><option value="Tyler">Tyler</option><option value="Wally">Wally</option><option value="Will">Will</option>
+                            <option value="Adrian Beat his son">Adrian Beat his son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Bill n Tom are KnobGobblers">Bill n Tom are KnobGobblers</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin It to win It">Fin It to win It</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Men In Black">Men In Black</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="Secret Project #69">Secret Project #69</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="TX ReFried BNRS BNR BOBS">TX ReFried BNRS BNR BOBS</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                     <div class="text-center font-black text-amber-500 uppercase italic text-lg py-2 sm:py-0">
@@ -608,7 +584,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 2</label>
                         <select id="mgr2-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Billy">Billy</option><option value="Brandon">Brandon</option><option value="Brian">Brian</option><option value="Caleb">Caleb</option><option value="Chris">Chris</option><option value="CJ">CJ</option><option value="John">John</option><option value="Justin">Justin</option><option value="Mark">Mark</option><option value="Matt">Matt</option><option value="Nick">Nick</option><option value="Rob">Rob</option><option value="Scott">Scott</option><option value="Stephen">Stephen</option><option value="Tom">Tom</option><option value="Todd">Todd</option><option value="Tyler">Tyler</option><option value="Wally">Wally</option><option value="Will">Will</option>
+                            <option value="Adrian Beat his son">Adrian Beat his son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Bill n Tom are KnobGobblers">Bill n Tom are KnobGobblers</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin It to win It">Fin It to win It</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Men In Black">Men In Black</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="Secret Project #69">Secret Project #69</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="TX ReFried BNRS BNR BOBS">TX ReFried BNRS BNR BOBS</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                 </div>
@@ -703,26 +679,281 @@
 
     <script>
         const h2hRecords = {
-            "Billy": {"Will": "14–10", "Chris": "13–11", "Tom": "13–11", "Justin": "14–10", "Stephen": "7–7", "CJ": "7–7", "Caleb": "5–3", "Todd": "9–7", "Wally": "5–5", "Nick": "5–3", "Brandon": "8–4", "Matt": "5–1", "Scott": "4–2", "John": "2–2", "Brian": "3–1", "Mark": "1–1", "Rob": "2–0", "Tyler": "2–0"},
-            "Will": {"Billy": "10–14", "Chris": "11–13", "Tom": "12–12", "Justin": "13–11", "Stephen": "7–7", "CJ": "6–8", "Caleb": "3–5", "Todd": "9–7", "Wally": "5–5", "Nick": "4–4", "Brandon": "9–5", "Matt": "4–0", "Scott": "3–2", "John": "2–1", "Brian": "2–1", "Mark": "0–1", "Rob": "1–0", "Tyler": "1–0"},
-            "Chris": {"Billy": "11–13", "Will": "13–11", "Tom": "14–10", "Justin": "12–12", "Stephen": "8–6", "CJ": "7–7", "Caleb": "4–4", "Todd": "8–8", "Wally": "6–4", "Nick": "5–3", "Brandon": "7–5", "Matt": "4–1", "Scott": "3–2", "John": "2–1", "Brian": "2–1", "Mark": "1–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Tom": {"Billy": "11–13", "Will": "12–12", "Chris": "10–14", "Justin": "10–14", "Stephen": "5–9", "CJ": "6–8", "Caleb": "2–6", "Todd": "7–9", "Wally": "4–6", "Nick": "3–5", "Brandon": "8–6", "Matt": "4–0", "Scott": "2–3", "John": "1–2", "Brian": "2–1", "Mark": "0–1", "Rob": "1–0", "Tyler": "1–0"},
-            "Justin": {"Billy": "10–14", "Will": "11–13", "Chris": "12–12", "Tom": "14–10", "Stephen": "6–8", "CJ": "6–8", "Caleb": "4–4", "Todd": "7–9", "Wally": "5–5", "Nick": "4–4", "Brandon": "8–6", "Matt": "3–1", "Scott": "3–2", "John": "1–2", "Brian": "2–1", "Mark": "1–0", "Rob": "0–1", "Tyler": "1–0"},
-            "Stephen": {"Billy": "7–7", "Will": "7–7", "Chris": "8–6", "Tom": "9–5", "Justin": "8–6", "CJ": "7–4", "Caleb": "3–3", "Todd": "5–7", "Wally": "5–4", "Nick": "4–4", "Brandon": "8–4", "Matt": "4–0", "Scott": "2–2", "John": "2–1", "Brian": "0–0", "Mark": "1–0", "Rob": "1–0", "Tyler": "1–0"},
-            "CJ": {"Billy": "7–7", "Will": "8–6", "Chris": "7–7", "Tom": "8–6", "Justin": "8–6", "Stephen": "4–7", "Caleb": "3–3", "Todd": "6–6", "Wally": "4–5", "Nick": "4–3", "Brandon": "6–4", "Matt": "3–0", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Caleb": {"Billy": "3–5", "Will": "5–3", "Chris": "4–4", "Tom": "6–2", "Justin": "4–4", "Stephen": "3–3", "CJ": "3–3", "Todd": "2–2", "Wally": "2–2", "Nick": "2–2", "Brandon": "4–2", "Matt": "3–1", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Todd": {"Billy": "7–9", "Will": "9–7", "Chris": "8–8", "Tom": "9–7", "Justin": "9–7", "Stephen": "7–5", "CJ": "6–6", "Caleb": "2–2", "Wally": "3–1", "Nick": "2–2", "Brandon": "3–1", "Matt": "4–0", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Wally": {"Billy": "5–5", "Will": "5–5", "Chris": "6–4", "Tom": "6–4", "Justin": "5–5", "Stephen": "5–4", "CJ": "5–4", "Caleb": "2–2", "Todd": "1–3", "Nick": "3–3", "Brandon": "3–3", "Matt": "2–0", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Nick": {"Billy": "3–5", "Will": "4–4", "Chris": "3–5", "Tom": "5–3", "Justin": "4–4", "Stephen": "4–4", "CJ": "3–4", "Caleb": "2–2", "Todd": "2–2", "Wally": "3–3", "Brandon": "5–3", "Matt": "2–0", "Scott": "2–2", "John": "0–0", "Brian": "0–0", "Mark": "1–0", "Rob": "1–0", "Tyler": "0–0"},
-            "Brandon": {"Billy": "4–8", "Will": "5–9", "Chris": "5–7", "Tom": "6–8", "Justin": "6–8", "Stephen": "4–8", "CJ": "4–6", "Caleb": "2–4", "Todd": "1–3", "Wally": "3–3", "Nick": "3–5", "Matt": "1–1", "Scott": "2–2", "John": "1–1", "Brian": "1–1", "Mark": "0–0", "Rob": "1–0", "Tyler": "1–0"},
-            "Matt": {"Billy": "1–5", "Will": "0–4", "Chris": "1–4", "Tom": "0–4", "Justin": "1–3", "Stephen": "0–4", "CJ": "0–3", "Caleb": "1–3", "Todd": "0–4", "Wally": "0–2", "Nick": "0–2", "Brandon": "1–1", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "0–1", "Tyler": "0–0"},
-            "Scott": {"Billy": "2–4", "Will": "2–3", "Chris": "2–3", "Tom": "3–2", "Justin": "2–3", "Stephen": "2–2", "CJ": "0–0", "Caleb": "0–0", "Todd": "0–0", "Wally": "0–0", "Nick": "2–2", "Brandon": "2–2", "Matt": "0–0", "John": "2–1", "Brian": "0–0", "Mark": "1–0", "Rob": "0–0", "Tyler": "0–0"},
-            "John": {"Billy": "2–2", "Will": "1–2", "Chris": "1–2", "Tom": "2–1", "Justin": "1–2", "Stephen": "1–2", "CJ": "0–0", "Caleb": "0–0", "Todd": "0–0", "Wally": "0–0", "Nick": "0–0", "Brandon": "1–1", "Matt": "0–0", "Scott": "1–2", "Brian": "1–1", "Mark": "0–1", "Rob": "0–0", "Tyler": "0–0"},
-            "Brian": {"Billy": "1–3", "Will": "1–2", "Chris": "1–2", "Tom": "1–2", "Justin": "1–2", "Stephen": "0–0", "CJ": "0–0", "Caleb": "0–0", "Todd": "0–0", "Wally": "0–0", "Nick": "0–0", "Brandon": "1–1", "Matt": "0–0", "Scott": "0–0", "John": "1–1", "Mark": "0–0", "Rob": "0–0", "Tyler": "0–0"},
-            "Mark": {"Billy": "1–1", "Will": "1–0", "Chris": "0–1", "Tom": "1–0", "Justin": "0–1", "Stephen": "0–1", "CJ": "0–0", "Caleb": "0–0", "Todd": "0–0", "Wally": "0–0", "Nick": "0–1", "Brandon": "0–0", "Matt": "0–0", "Scott": "1–0", "John": "1–0", "Brian": "0–0", "Rob": "0–0", "Tyler": "0–0"},
-            "Rob": {"Billy": "0–2", "Will": "0–1", "Chris": "0–1", "Tom": "0–1", "Justin": "1–0", "Stephen": "0–1", "CJ": "0–1", "Caleb": "0–1", "Todd": "0–1", "Wally": "0–1", "Nick": "0–1", "Brandon": "0–1", "Matt": "1–0", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Tyler": "0–0"},
-            "Tyler": {"Billy": "0–2", "Will": "0–1", "Chris": "0–1", "Tom": "0–1", "Justin": "1–0", "Stephen": "0–1", "CJ": "0–1", "Caleb": "0–1", "Todd": "0–1", "Wally": "0–1", "Nick": "0–0", "Brandon": "0–1", "Matt": "0–0", "Scott": "0–0", "John": "0–0", "Brian": "0–0", "Mark": "0–0", "Rob": "0–0"}
-        };
+    "Texas Teabaggers": {
+        "Barely Gettin Bye": "14–10",
+        "JOE BUCK YOURSELF": "13–11",
+        "Cowboys and Illegal Aliens": "13–11",
+        "One GIANT Step": "14–10",
+        "PACKER BACKERS": "7–7",
+        "SHHHHH THECHAMPISHERE": "7–7",
+        "Zirk Squad": "5–3",
+        "Fin It to win It": "9–7",
+        "Adrian Beat his son": "5–5",
+        "Cruz Control": "8–4",
+        "Jacksonville Jarheads": "5–1",
+        "Men In Black": "4–2",
+        "Secret Project #69": "2–2",
+        "Furious Hungry Cowboys": "3–1",
+        "Bill n Tom are KnobGobblers": "1–1",
+        "TX ReFried BNRS BNR BOBS": "2–0",
+        "Japanese Ball Fondlers": "2–0"
+    },
+    "Barely Gettin Bye": {
+        "Texas Teabaggers": "10–14",
+        "JOE BUCK YOURSELF": "11–13",
+        "Cowboys and Illegal Aliens": "12–12",
+        "One GIANT Step": "13–11",
+        "PACKER BACKERS": "7–7",
+        "SHHHHH THECHAMPISHERE": "6–8",
+        "Zirk Squad": "3–5",
+        "Fin It to win It": "9–7",
+        "Adrian Beat his son": "5–5",
+        "Cruz Control": "9–5",
+        "Jacksonville Jarheads": "4–0",
+        "Men In Black": "3–2",
+        "Secret Project #69": "2–1",
+        "Furious Hungry Cowboys": "2–1",
+        "Bill n Tom are KnobGobblers": "0–1",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "JOE BUCK YOURSELF": {
+        "Texas Teabaggers": "11–13",
+        "Barely Gettin Bye": "13–11",
+        "Cowboys and Illegal Aliens": "14–10",
+        "One GIANT Step": "12–12",
+        "PACKER BACKERS": "8–6",
+        "SHHHHH THECHAMPISHERE": "7–7",
+        "Zirk Squad": "4–4",
+        "Fin It to win It": "8–8",
+        "Adrian Beat his son": "6–4",
+        "Cruz Control": "7–5",
+        "Jacksonville Jarheads": "4–1",
+        "Men In Black": "3–2",
+        "Secret Project #69": "2–1",
+        "Furious Hungry Cowboys": "2–1",
+        "Bill n Tom are KnobGobblers": "1–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Cowboys and Illegal Aliens": {
+        "Texas Teabaggers": "11–13",
+        "Barely Gettin Bye": "12–12",
+        "JOE BUCK YOURSELF": "10–14",
+        "One GIANT Step": "10–14",
+        "PACKER BACKERS": "9–5",
+        "SHHHHH THECHAMPISHERE": "6–8",
+        "Zirk Squad": "6–2",
+        "Fin It to win It": "7–9",
+        "Adrian Beat his son": "4–6",
+        "Cruz Control": "8–6",
+        "Jacksonville Jarheads": "4–0",
+        "Men In Black": "3–2",
+        "Secret Project #69": "2–1",
+        "Furious Hungry Cowboys": "2–1",
+        "Bill n Tom are KnobGobblers": "1–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "One GIANT Step": {
+        "Texas Teabaggers": "10–14",
+        "Barely Gettin Bye": "11–13",
+        "JOE BUCK YOURSELF": "12–12",
+        "Cowboys and Illegal Aliens": "14–10",
+        "PACKER BACKERS": "6–8",
+        "SHHHHH THECHAMPISHERE": "6–8",
+        "Zirk Squad": "4–4",
+        "Fin It to win It": "7–9",
+        "Adrian Beat his son": "5–5",
+        "Cruz Control": "8–6",
+        "Jacksonville Jarheads": "3–1",
+        "Men In Black": "3–2",
+        "Secret Project #69": "1–2",
+        "Furious Hungry Cowboys": "2–1",
+        "Bill n Tom are KnobGobblers": "1–0",
+        "TX ReFried BNRS BNR BOBS": "0–1",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "PACKER BACKERS": {
+        "Texas Teabaggers": "7–7",
+        "Barely Gettin Bye": "7–7",
+        "JOE BUCK YOURSELF": "8–6",
+        "Cowboys and Illegal Aliens": "9–5",
+        "One GIANT Step": "8–6",
+        "SHHHHH THECHAMPISHERE": "7–4",
+        "Zirk Squad": "3–3",
+        "Fin It to win It": "5–7",
+        "Adrian Beat his son": "5–4",
+        "Cruz Control": "8–4",
+        "Jacksonville Jarheads": "4–0",
+        "Men In Black": "2–2",
+        "Secret Project #69": "2–1",
+        "Bill n Tom are KnobGobblers": "1–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "SHHHHH THECHAMPISHERE": {
+        "Texas Teabaggers": "7–7",
+        "Barely Gettin Bye": "8–6",
+        "JOE BUCK YOURSELF": "7–7",
+        "Cowboys and Illegal Aliens": "8–6",
+        "One GIANT Step": "8–6",
+        "PACKER BACKERS": "4–7",
+        "Zirk Squad": "3–3",
+        "Fin It to win It": "6–6",
+        "Adrian Beat his son": "4–5",
+        "Cruz Control": "6–4",
+        "Jacksonville Jarheads": "3–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Zirk Squad": {
+        "Texas Teabaggers": "3–5",
+        "Barely Gettin Bye": "5–3",
+        "JOE BUCK YOURSELF": "4–4",
+        "Cowboys and Illegal Aliens": "2–6",
+        "One GIANT Step": "4–4",
+        "PACKER BACKERS": "3–3",
+        "SHHHHH THECHAMPISHERE": "3–3",
+        "Fin It to win It": "2–2",
+        "Adrian Beat his son": "2–2",
+        "Cruz Control": "4–2",
+        "Jacksonville Jarheads": "3–1",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Fin It to win It": {
+        "Texas Teabaggers": "7–9",
+        "Barely Gettin Bye": "9–7",
+        "JOE BUCK YOURSELF": "8–8",
+        "Cowboys and Illegal Aliens": "9–7",
+        "One GIANT Step": "9–7",
+        "PACKER BACKERS": "7–5",
+        "SHHHHH THECHAMPISHERE": "6–6",
+        "Zirk Squad": "2–2",
+        "Adrian Beat his son": "3–1",
+        "Cruz Control": "3–1",
+        "Jacksonville Jarheads": "4–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Adrian Beat his son": {
+        "Texas Teabaggers": "5–5",
+        "Barely Gettin Bye": "5–5",
+        "JOE BUCK YOURSELF": "6–4",
+        "Cowboys and Illegal Aliens": "6–4",
+        "One GIANT Step": "5–5",
+        "PACKER BACKERS": "5–4",
+        "SHHHHH THECHAMPISHERE": "5–4",
+        "Zirk Squad": "2–2",
+        "Fin It to win It": "1–3",
+        "Cruz Control": "3–3",
+        "Jacksonville Jarheads": "2–0",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Cruz Control": {
+        "Texas Teabaggers": "4–8",
+        "Barely Gettin Bye": "5–9",
+        "JOE BUCK YOURSELF": "5–7",
+        "Cowboys and Illegal Aliens": "6–8",
+        "One GIANT Step": "6–8",
+        "PACKER BACKERS": "4–8",
+        "SHHHHH THECHAMPISHERE": "4–6",
+        "Zirk Squad": "2–4",
+        "Fin It to win It": "1–3",
+        "Adrian Beat his son": "3–3",
+        "Jacksonville Jarheads": "1–1",
+        "Men In Black": "2–2",
+        "Secret Project #69": "1–1",
+        "Furious Hungry Cowboys": "1–1",
+        "TX ReFried BNRS BNR BOBS": "1–0",
+        "Japanese Ball Fondlers": "1–0"
+    },
+    "Jacksonville Jarheads": {
+        "Texas Teabaggers": "1–5",
+        "Barely Gettin Bye": "0–4",
+        "JOE BUCK YOURSELF": "1–4",
+        "Cowboys and Illegal Aliens": "0–4",
+        "One GIANT Step": "1–3",
+        "PACKER BACKERS": "0–4",
+        "SHHHHH THECHAMPISHERE": "0–3",
+        "Zirk Squad": "1–3",
+        "Fin It to win It": "0–4",
+        "Adrian Beat his son": "0–2",
+        "Cruz Control": "1–1",
+        "TX ReFried BNRS BNR BOBS": "0–1"
+    },
+    "Men In Black": {
+        "Texas Teabaggers": "2–4",
+        "Barely Gettin Bye": "2–3",
+        "JOE BUCK YOURSELF": "2–3",
+        "Cowboys and Illegal Aliens": "3–2",
+        "One GIANT Step": "2–3",
+        "PACKER BACKERS": "2–2",
+        "Cruz Control": "2–2",
+        "Secret Project #69": "2–1",
+        "Bill n Tom are KnobGobblers": "1–0"
+    },
+    "Secret Project #69": {
+        "Texas Teabaggers": "2–2",
+        "Barely Gettin Bye": "1–2",
+        "JOE BUCK YOURSELF": "1–2",
+        "Cowboys and Illegal Aliens": "2–1",
+        "One GIANT Step": "1–2",
+        "PACKER BACKERS": "1–2",
+        "Cruz Control": "1–1",
+        "Men In Black": "1–2",
+        "Furious Hungry Cowboys": "1–1",
+        "Bill n Tom are KnobGobblers": "0–1"
+    },
+    "Furious Hungry Cowboys": {
+        "Texas Teabaggers": "1–3",
+        "Barely Gettin Bye": "1–2",
+        "JOE BUCK YOURSELF": "1–2",
+        "Cowboys and Illegal Aliens": "1–2",
+        "One GIANT Step": "1–2",
+        "Cruz Control": "1–1",
+        "Secret Project #69": "1–1"
+    },
+    "Bill n Tom are KnobGobblers": {
+        "Texas Teabaggers": "1–1",
+        "Barely Gettin Bye": "1–0",
+        "JOE BUCK YOURSELF": "0–1",
+        "Cowboys and Illegal Aliens": "1–0",
+        "One GIANT Step": "0–1",
+        "PACKER BACKERS": "0–1",
+        "Men In Black": "1–0",
+        "Secret Project #69": "1–0"
+    },
+    "TX ReFried BNRS BNR BOBS": {
+        "Texas Teabaggers": "0–2",
+        "Barely Gettin Bye": "0–1",
+        "JOE BUCK YOURSELF": "0–1",
+        "Cowboys and Illegal Aliens": "0–1",
+        "One GIANT Step": "1–0",
+        "PACKER BACKERS": "0–1",
+        "SHHHHH THECHAMPISHERE": "0–1",
+        "Zirk Squad": "0–1",
+        "Fin It to win It": "0–1",
+        "Adrian Beat his son": "0–1",
+        "Cruz Control": "0–1",
+        "Jacksonville Jarheads": "1–0"
+    },
+    "Japanese Ball Fondlers": {
+        "Texas Teabaggers": "0–2",
+        "Barely Gettin Bye": "0–1",
+        "JOE BUCK YOURSELF": "0–1",
+        "Cowboys and Illegal Aliens": "0–1",
+        "One GIANT Step": "1–0",
+        "PACKER BACKERS": "0–1",
+        "SHHHHH THECHAMPISHERE": "0–1",
+        "Zirk Squad": "0–1",
+        "Fin It to win It": "0–1",
+        "Adrian Beat his son": "0–1",
+        "Cruz Control": "0–1"
+    }
+};
 
         function updateH2H() {
             const m1 = document.getElementById('mgr1-select').value;
@@ -732,7 +963,7 @@
 
             if (m1 === m2) {
                 display.innerText = "—";
-                note.innerText = "Cannot compare a manager against themselves.";
+                note.innerText = "Cannot compare a team against themselves.";
             } else if (h2hRecords[m1] && h2hRecords[m1][m2]) {
                 display.innerText = h2hRecords[m1][m2];
                 note.innerText = m1 + " vs " + m2 + " — Regular Season & Postseason Battles";
@@ -744,6 +975,161 @@
         
         window.addEventListener('DOMContentLoaded', () => {
             updateH2H();
+        });
+    </script>
+
+    <!-- Data-Driven Player Cards Script -->
+    <script>
+        const playerRecords = [
+            {
+                position: "QB",
+                name: "Josh Allen",
+                team: "Buffalo Bills",
+                number: "#17",
+                week: "Week 14, 2024",
+                fpts: "56.88 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/buf.png",
+                owner: "Texas Teabaggers",
+                stats: [
+                    { label: "Pass Yds", value: "339" },
+                    { label: "Pass TD", value: "3" },
+                    { label: "Rush Yds", value: "82" },
+                    { label: "Rush TD", value: "2" }
+                ]
+            },
+            {
+                position: "RB",
+                name: "Jahmyr Gibbs",
+                team: "Detroit Lions",
+                number: "#26",
+                week: "Week 12, 2025",
+                fpts: "65.40 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4429074.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/det.png",
+                owner: "Zirk Squad",
+                stats: [
+                    { label: "Rush Yds", value: "152" },
+                    { label: "Rush TD", value: "3" },
+                    { label: "Rec Yds", value: "68" },
+                    { label: "Rec TD", value: "1" }
+                ]
+            },
+            {
+                position: "WR",
+                name: "Ja'Marr Chase",
+                team: "Cincinnati Bengals",
+                number: "#1",
+                week: "Week 10, 2024",
+                fpts: "65.40 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/cin.png",
+                owner: "JOE BUCK YOURSELF",
+                stats: [
+                    { label: "Rec Yds", value: "264" },
+                    { label: "Rec TD", value: "3" },
+                    { label: "Receptions", value: "11" },
+                    { label: "Targets", value: "13" }
+                ]
+            },
+            {
+                position: "TE",
+                name: "Brock Bowers",
+                team: "Las Vegas Raiders",
+                number: "#89",
+                week: "Week 9, 2025",
+                fpts: "48.30 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4431611.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/lv.png",
+                owner: "Zirk Squad",
+                stats: [
+                    { label: "Rec Yds", value: "145" },
+                    { label: "Rec TD", value: "2" },
+                    { label: "Receptions", value: "10" },
+                    { label: "Targets", value: "12" }
+                ]
+            },
+            {
+                position: "K",
+                name: "Chris Boswell",
+                team: "Pittsburgh Steelers",
+                number: "#9",
+                week: "Week 1, 2024",
+                fpts: "27.30 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2580173.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/pit.png",
+                owner: "Barely Gettin Bye",
+                stats: [
+                    { label: "FG 50+", value: "3" },
+                    { label: "FG 40-49", value: "2" },
+                    { label: "Total FG", value: "6" },
+                    { label: "XP Made", value: "1" }
+                ]
+            },
+            {
+                position: "DEF",
+                name: "Dallas Cowboys",
+                team: "Cowboys D/ST",
+                number: "DEF",
+                week: "Week 1, 2023",
+                fpts: "35.00 pts",
+                headshot: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
+                owner: "Texas Teabaggers",
+                stats: [
+                    { label: "Sacks", value: "7" },
+                    { label: "Interceptions", value: "1" },
+                    { label: "Fum Rec", value: "2" },
+                    { label: "Def TD", value: "1" }
+                ]
+            }
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('player-records-grid');
+            if (!grid) return;
+
+            grid.innerHTML = playerRecords.map(p => `
+                <article class="player-card group relative overflow-hidden rounded-xl border border-gold-500/30 bg-gradient-to-br from-zinc-900 via-zinc-900 to-zinc-950 shadow-xl shadow-black/40">
+                    <!-- Top accent bar -->
+                    <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-80"></div>
+
+                    <!-- Header / Photo area -->
+                    <div class="relative flex items-start gap-4 p-4 pb-3">
+                        <div class="relative shrink-0">
+                            <img src="${p.headshot}" alt="${p.name}" class="h-20 w-20 rounded-lg object-cover object-top ring-2 ring-gold-500/40 shadow-lg bg-zinc-800" loading="lazy" />
+                            <img src="${p.teamLogo}" alt="${p.team}" class="absolute -bottom-1 -right-1 h-7 w-7 rounded-full bg-zinc-900 p-0.5 ring-1 ring-gold-500/50" loading="lazy" />
+                        </div>
+                        <div class="min-w-0 flex-1">
+                            <div class="flex items-center gap-2">
+                                <h3 class="truncate text-lg font-bold tracking-tight text-white group-hover:text-gold-300 transition-colors">${p.name}</h3>
+                                <span class="shrink-0 rounded bg-gold-500/20 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-gold-400">${p.position}</span>
+                            </div>
+                            <p class="mt-0.5 text-sm text-zinc-400">${p.team} · ${p.number}</p>
+                            <div class="mt-2 flex flex-wrap gap-1.5">
+                                <span class="rounded-full bg-zinc-800 px-2 py-0.5 text-xs text-zinc-300">${p.week}</span>
+                                <span class="rounded-full bg-emerald-500/15 px-2 py-0.5 text-xs font-medium text-emerald-400">${p.fpts}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats grid -->
+                    <div class="grid grid-cols-4 gap-px border-t border-zinc-800 bg-zinc-800/50">
+                        ${p.stats.map(s => `
+                            <div class="bg-zinc-900/80 px-2 py-2.5 text-center">
+                                <div class="text-[10px] uppercase tracking-wider text-zinc-500 truncate">${s.label}</div>
+                                <div class="mt-0.5 text-sm font-semibold text-white">${s.value}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="flex items-center justify-between border-t border-zinc-800 px-4 py-2.5">
+                        <span class="text-xs text-zinc-500">Manager: <span class="text-zinc-300 font-medium">${p.owner}</span></span>
+                        <span class="text-xs font-medium text-gold-400 hover:text-gold-300 transition-colors cursor-pointer">Official Record ✓</span>
+                    </div>
+                </article>
+            `).join('');
         });
     </script>
 </body>
