@@ -89,6 +89,7 @@
                 <button onclick="switchTab('players')" id="btn-players" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Player Records</button>
                 <button onclick="switchTab('h2h')" id="btn-h2h" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Head-to-Head</button>
                 <button onclick="switchTab('bylaws')" id="btn-bylaws" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Bylaws & Rules</button>
+                <button onclick="switchTab('playoffs')" id="btn-playoffs" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Playoff Calculator</button>
             </nav>
         </div>
         <!-- Mobile Nav -->
@@ -98,6 +99,7 @@
             <button onclick="switchTab('players')" id="m-btn-players" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Player Records</button>
             <button onclick="switchTab('h2h')" id="m-btn-h2h" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Head-to-Head</button>
             <button onclick="switchTab('bylaws')" id="m-btn-bylaws" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Bylaws</button>
+            <button onclick="switchTab('playoffs')" id="m-btn-playoffs" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Playoffs</button>
         </div>
     </header>
 
@@ -324,7 +326,7 @@
                 </div>
             </div>
 
-            <!-- All-Time Regular Season Manager Records Section (Sorted Descending by W %, Omitting Team Beat Dat Ass) -->
+            <!-- All-Time Regular Season Manager Records Section -->
             <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
                 <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-users text-amber-500 mr-2"></i> All-Time Regular Season Manager Records (2011–2025)</h3>
                 <p class="text-slate-400 text-sm mb-6">Comprehensive regular season performance metrics tracked across all active, former, and memorial league managers.</p>
@@ -595,7 +597,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 1</label>
                         <select id="mgr1-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
+                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                     <div class="text-center font-black text-amber-500 uppercase italic text-lg py-2 sm:py-0">
@@ -604,7 +606,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 2</label>
                         <select id="mgr2-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
+                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                 </div>
@@ -660,6 +662,43 @@
             </div>
         </section>
 
+        <!-- TAB 6: PLAYOFF SCENARIO FINDER -->
+        <section id="tab-playoffs" class="tab-content hidden space-y-8">
+            <div class="bg-slate-900/90 border border-amber-500/20 rounded-3xl p-6 sm:p-8 shadow-xl backdrop-blur-md space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/30 pb-6">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-400 flex items-center gap-3">
+                            <span>🏆</span> Team Playoff Paths & Magic Numbers
+                        </h2>
+                        <p class="text-slate-400 text-sm mt-1">Select any team below to see their playoff odds, required win record, and clean clinching paths for Weeks 9–11.</p>
+                    </div>
+                </div>
+
+                <!-- Team Selector Dropdown -->
+                <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-inner space-y-4">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-amber-400">Select Team to Analyze</label>
+                    <select id="team-scenario-select" onchange="analyzeTeamScenarios()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500 shadow-md">
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+
+                <!-- Summary Stats & Odds Cards -->
+                <div id="scenario-summary" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Clean Summary Paths List -->
+                <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-5 shadow-inner space-y-4">
+                    <h3 class="text-lg font-bold text-amber-300 flex items-center gap-2">
+                        <span>📋</span> Required Paths & Clinching Scenarios
+                    </h3>
+                    <div id="scenarios-list-container" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -675,6 +714,9 @@
                 el.classList.add('hidden');
             });
             document.getElementById('tab-' + tabId).classList.remove('hidden');
+            if (tabId === 'playoffs') {
+                initScenarioDropdown();
+            }
 
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white";
@@ -1103,7 +1145,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-5",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-2",
         "Zirk Squad": "1-1"
     },
@@ -1151,7 +1192,6 @@
         "Sayre MustangGT5.0": "5-1",
         "Secret Project #69": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "0-0",
         "Zirk Squad": "0-0"
     },
@@ -1178,30 +1218,6 @@
         "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "1-1",
         "Zirk Squad": "0-1"
-    },
-    "Team Beat Dat Ass": {
-        "Adrian Beat His son": "0-0",
-        "Barely Gettin Bye": "1-0",
-        "Cowboys and Illegal Aliens": "1-1",
-        "Cruz Control": "0-0",
-        "Fin it to win it": "0-0",
-        "Furious Hungry Cowboys": "1-1",
-        "It's Shough Time": "0-0",
-        "JOE BUCK YOURSELF": "2-0",
-        "Jacksonville Jarheads": "0-0",
-        "Japanese Ball Fondlers": "0-0",
-        "Knobgobblers": "0-0",
-        "Men In Black": "0-0",
-        "Moore Nuts Allen Ya Mouth": "0-0",
-        "One GIANT Step": "2-0",
-        "PACKER BACKERS": "0-0",
-        "SHHHHH THECHAMPISHERE": "0-0",
-        "Sayre MustangGT5.0": "0-0",
-        "Secret Project #69": "2-0",
-        "Skillz That Killz": "0-0",
-        "TX Refried BNRS BNR BOB": "0-0",
-        "Texas Teabaggers": "2-0",
-        "Zirk Squad": "0-0"
     },
     "Texas Teabaggers": {
         "Adrian Beat His son": "6-3",
@@ -1248,7 +1264,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "1-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "5-5"
     }
 };
@@ -1264,7 +1279,7 @@
                 note.innerText = "Cannot compare a manager against themselves.";
             } else if (h2hRecords[m1] && h2hRecords[m1][m2]) {
                 display.innerText = h2hRecords[m1][m2];
-                note.innerText = m1 + " vs " + m2 + " — Regular Season Battles. Are You The Bitch?";
+                note.innerText = m1 + " vs " + m2 + " — Regular Season & Postseason Battles";
             } else {
                 display.innerText = "0–0";
                 note.innerText = "No recorded head-to-head matchups between " + m1 + " and " + m2;
@@ -1288,7 +1303,7 @@
                 fpts: "56.88 pts",
                 headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/buf.png",
-                owner: "Jacksonville Jarheads",
+                owner: "Texas Teabaggers",
                 stats: [
                     { label: "Pass Yds", value: "339" },
                     { label: "Pass TD", value: "3" },
@@ -1303,7 +1318,7 @@
                 number: "#26",
                 week: "Week 12, 2025",
                 fpts: "65.40 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4429074.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/det.png",
                 owner: "Zirk Squad",
                 stats: [
@@ -1322,7 +1337,7 @@
                 fpts: "65.40 pts",
                 headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/cin.png",
-                owner: "Zirk Squad",
+                owner: "JOE BUCK YOURSELF",
                 stats: [
                     { label: "Rec Yds", value: "264" },
                     { label: "Rec TD", value: "3" },
@@ -1337,9 +1352,9 @@
                 number: "#89",
                 week: "Week 9, 2025",
                 fpts: "48.30 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4432665.png",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4431611.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/lv.png",
-                owner: "PACKER BACKERS",
+                owner: "Zirk Squad",
                 stats: [
                     { label: "Rec Yds", value: "145" },
                     { label: "Rec TD", value: "2" },
@@ -1349,36 +1364,36 @@
             },
             {
                 position: "K",
-                name: "Ka'imi Fairbairn",
-                team: "Houston Texans",
-                number: "#15",
-                week: "Week 18, 2025",
-                fpts: "27.80 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2971573.png",
-                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/hou.png",
-                owner: "Fin it to win it",
+                name: "Chris Boswell",
+                team: "Pittsburgh Steelers",
+                number: "#9",
+                week: "Week 1, 2024",
+                fpts: "27.30 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2580173.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/pit.png",
+                owner: "Barely Gettin Bye",
                 stats: [
-                    { label: "FG 50+", value: "1" },
-                    { label: "FG 40-49", value: "4" },
+                    { label: "FG 50+", value: "3" },
+                    { label: "FG 40-49", value: "2" },
                     { label: "Total FG", value: "6" },
-                    { label: "XP Made", value: "2" }
+                    { label: "XP Made", value: "1" }
                 ]
             },
             {
                 position: "DEF",
                 name: "Dallas Cowboys",
-                team: "Dallas Cowboys D/ST",
+                team: "Cowboys D/ST",
                 number: "DEF",
                 week: "Week 1, 2023",
                 fpts: "35.00 pts",
-                headshot: "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/dal.png",
+                headshot: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
                 owner: "Texas Teabaggers",
                 stats: [
                     { label: "Sacks", value: "7" },
-                    { label: "Interceptions", value: "2" },
-                    { label: "Fum Rec", value: "1" },
-                    { label: "Def TD", value: "2" }
+                    { label: "Interceptions", value: "1" },
+                    { label: "Fum Rec", value: "2" },
+                    { label: "Def TD", value: "1" }
                 ]
             }
         ];
