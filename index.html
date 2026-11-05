@@ -89,7 +89,7 @@
                 <button onclick="switchTab('players')" id="btn-players" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Player Records</button>
                 <button onclick="switchTab('h2h')" id="btn-h2h" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Head-to-Head</button>
                 <button onclick="switchTab('bylaws')" id="btn-bylaws" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Bylaws & Rules</button>
-                <button onclick="switchTab('playoffs')" id="btn-playoffs" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Playoff Calculator</button>
+                <button onclick="switchTab('playoffs')" id="btn-playoffs" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Playoffs</button>
             </nav>
         </div>
         <!-- Mobile Nav -->
@@ -597,7 +597,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 1</label>
                         <select id="mgr1-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
+                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                     <div class="text-center font-black text-amber-500 uppercase italic text-lg py-2 sm:py-0">
@@ -606,7 +606,7 @@
                     <div>
                         <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Manager 2</label>
                         <select id="mgr2-select" onchange="updateH2H()" class="w-full bg-gridiron-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500">
-                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
+                            <option value="Adrian Beat His son">Adrian Beat His son</option><option value="Barely Gettin Bye">Barely Gettin Bye</option><option value="Cowboys and Illegal Aliens">Cowboys and Illegal Aliens</option><option value="Cruz Control">Cruz Control</option><option value="Fin it to win it">Fin it to win it</option><option value="Furious Hungry Cowboys">Furious Hungry Cowboys</option><option value="It's Shough Time">It's Shough Time</option><option value="JOE BUCK YOURSELF">JOE BUCK YOURSELF</option><option value="Jacksonville Jarheads">Jacksonville Jarheads</option><option value="Japanese Ball Fondlers">Japanese Ball Fondlers</option><option value="Knobgobblers">Knobgobblers</option><option value="Men In Black">Men In Black</option><option value="Moore Nuts Allen Ya Mouth">Moore Nuts Allen Ya Mouth</option><option value="One GIANT Step">One GIANT Step</option><option value="PACKER BACKERS">PACKER BACKERS</option><option value="SHHHHH THECHAMPISHERE">SHHHHH THECHAMPISHERE</option><option value="Sayre MustangGT5.0">Sayre MustangGT5.0</option><option value="Secret Project #69">Secret Project #69</option><option value="Skillz That Killz">Skillz That Killz</option><option value="TX Refried BNRS BNR BOB">TX Refried BNRS BNR BOB</option><option value="Team Beat Dat Ass">Team Beat Dat Ass</option><option value="Texas Teabaggers">Texas Teabaggers</option><option value="Zirk Squad">Zirk Squad</option>
                         </select>
                     </div>
                 </div>
@@ -615,7 +615,7 @@
                 <div class="bg-gradient-to-r from-espngreen-700/20 to-amber-500/10 border border-espngreen-600/40 rounded-2xl p-6 text-center shadow-lg">
                     <div class="text-xs uppercase font-bold tracking-widest text-slate-400 mb-1">Lifetime Matchup Record</div>
                     <div id="h2h-score-display" class="text-4xl sm:text-5xl font-black text-white italic tracking-tight my-2">8–6</div>
-                    <div id="h2sh-note-display" class="text-xs text-slate-300 font-medium">Regular Season Battles Recorded Across League History</div>
+                    <div id="h2h-note-display" class="text-xs text-slate-300 font-medium">Regular Season Battles Recorded Across League History</div>
                 </div>
             </div>
         </section>
@@ -663,75 +663,39 @@
         </section>
 
     
-        <!-- TAB 6: PLAYOFF CALCULATOR -->
+        <!-- TAB 6: PLAYOFF SCENARIO FINDER -->
         <section id="tab-playoffs" class="tab-content hidden space-y-8">
             <div class="bg-slate-900/90 border border-amber-500/20 rounded-3xl p-6 sm:p-8 shadow-xl backdrop-blur-md space-y-6">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-amber-500/30 pb-6">
                     <div>
                         <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-amber-400 flex items-center gap-3">
-                            <span>🏆</span> Playoff Scenarios & Magic Numbers
+                            <span>🏆</span> Team Playoff Scenarios & Odds
                         </h2>
-                        <p class="text-slate-400 text-sm mt-1">Simulate remaining regular season matchups (Weeks 9–11) to calculate live playoff odds and standings.</p>
+                        <p class="text-slate-400 text-sm mt-1">Select any team below to instantly calculate their playoff odds and view exact qualification scenarios across remaining games (Weeks 9–11).</p>
                     </div>
-                    <button onclick="resetSimulation()" class="px-4 py-2 bg-slate-950 hover:bg-slate-800 text-amber-400 border border-amber-500/40 rounded-xl text-sm font-semibold transition shadow-md">
-                        Reset Simulations
-                    </button>
                 </div>
 
-                <!-- Main Grid Layout -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                    
-                    <!-- Standings Table (7 Cols on LG) -->
-                    <div class="lg:col-span-7 bg-slate-950/60 border border-slate-800 rounded-2xl p-5 shadow-inner">
-                        <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
-                            <span>📊</span> Projected Standings
-                        </h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-sm">
-                                <thead>
-                                    <tr class="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-xs">
-                                        <th class="py-3 px-2">Rk</th>
-                                        <th class="py-3 px-3">Team</th>
-                                        <th class="py-3 px-2 text-center">W-L</th>
-                                        <th class="py-3 px-2 text-center">PF</th>
-                                        <th class="py-3 px-3 text-center">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="standings-body" class="divide-y divide-slate-800/60">
-                                    <!-- Populated dynamically via JS -->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="mt-4 text-xs text-slate-400 flex flex-wrap gap-4">
-                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-400"></span> 1st-2nd: Bye</span>
-                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-400"></span> 3rd-6th: Playoffs</span>
-                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-slate-800 border border-slate-600"></span> 7th-10th: Out</span>
-                        </div>
+                <!-- Team Selector Dropdown -->
+                <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-inner space-y-4">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-amber-400">Select Team to Analyze</label>
+                    <select id="team-scenario-select" onchange="analyzeTeamScenarios()" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500 shadow-md">
+                        <!-- Populated via JS -->
+                    </select>
+                </div>
+
+                <!-- Summary Stats & Odds Cards -->
+                <div id="scenario-summary" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Detailed Scenarios List -->
+                <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-5 shadow-inner space-y-4">
+                    <h3 class="text-lg font-bold text-amber-300 flex items-center gap-2">
+                        <span>📋</span> Qualification Paths & Requirements
+                    </h3>
+                    <div id="scenarios-list-container" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
+                        <!-- Populated via JS -->
                     </div>
-
-                    <!-- Matchup Simulators (5 Cols on LG) -->
-                    <div class="lg:col-span-5 space-y-6">
-                        
-                        <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-5 shadow-inner">
-                            <h3 class="text-lg font-bold text-amber-300 mb-4 flex items-center gap-2">
-                                <span>🏈</span> Matchup Simulator
-                            </h3>
-                            
-                            <!-- Week Selector Tabs -->
-                            <div class="flex rounded-lg bg-slate-900 p-1 border border-slate-800 mb-4">
-                                <button onclick="switchWeek(9)" id="btn-week-9" class="flex-1 py-1.5 text-xs font-semibold rounded-md transition bg-amber-500 text-slate-950 shadow">Week 9</button>
-                                <button onclick="switchWeek(10)" id="btn-week-10" class="flex-1 py-1.5 text-xs font-semibold rounded-md transition text-slate-400 hover:text-slate-200">Week 10</button>
-                                <button onclick="switchWeek(11)" id="btn-week-11" class="flex-1 py-1.5 text-xs font-semibold rounded-md transition text-slate-400 hover:text-slate-200">Week 11</button>
-                            </div>
-
-                            <!-- Matchup Cards Container -->
-                            <div id="matchups-container" class="space-y-4 max-h-[450px] overflow-y-auto pr-1">
-                                <!-- Populated dynamically via JS -->
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -751,8 +715,7 @@
             });
             document.getElementById('tab-' + tabId).classList.remove('hidden');
             if (tabId === 'playoffs') {
-                calculateAndUpdateStandings();
-                renderMatchups();
+                analyzeTeamScenarios();
             }
 
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -798,6 +761,7 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-2",
         "TX Refried BNRS BNR BOB": "0-1",
+        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-6",
         "Zirk Squad": "2-1"
     },
@@ -1333,8 +1297,8 @@
         function updateH2H() {
             const m1 = document.getElementById('mgr1-select').value;
             const m2 = document.getElementById('mgr2-select').value;
-            const display = document.getElementById('h2h-score-display');
-            const note = document.getElementById('h2h-note-display');
+            const display = document.getElementById('h2sh-score-display');
+            const note = document.getElementById('h2sh-note-display');
 
             if (m1 === m2) {
                 display.innerText = "—";
@@ -1365,7 +1329,7 @@
                 fpts: "56.88 pts",
                 headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/3918298.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/buf.png",
-                owner: "Texas Teabaggers",
+                owner: "Jacksonville Jarheads",
                 stats: [
                     { label: "Pass Yds", value: "339" },
                     { label: "Pass TD", value: "3" },
@@ -1380,7 +1344,7 @@
                 number: "#26",
                 week: "Week 12, 2025",
                 fpts: "65.40 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4429074.png",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/det.png",
                 owner: "Zirk Squad",
                 stats: [
@@ -1399,7 +1363,7 @@
                 fpts: "65.40 pts",
                 headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4362628.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/cin.png",
-                owner: "JOE BUCK YOURSELF",
+                owner: "Zirk Squad",
                 stats: [
                     { label: "Rec Yds", value: "264" },
                     { label: "Rec TD", value: "3" },
@@ -1414,9 +1378,9 @@
                 number: "#89",
                 week: "Week 9, 2025",
                 fpts: "48.30 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4431611.png",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/4432665.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/lv.png",
-                owner: "Zirk Squad",
+                owner: "PACKER BACKERS",
                 stats: [
                     { label: "Rec Yds", value: "145" },
                     { label: "Rec TD", value: "2" },
@@ -1426,19 +1390,19 @@
             },
             {
                 position: "K",
-                name: "Chris Boswell",
-                team: "Pittsburgh Steelers",
-                number: "#9",
-                week: "Week 1, 2024",
-                fpts: "27.30 pts",
-                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2580173.png",
-                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/pit.png",
-                owner: "Barely Gettin Bye",
+                name: "Ka'imi Fairbairn",
+                team: "Houston Texans",
+                number: "#15",
+                week: "Week 18, 2025",
+                fpts: "27.80 pts",
+                headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2971573.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/hou.png",
+                owner: "Fin it to win it",
                 stats: [
-                    { label: "FG 50+", value: "3" },
-                    { label: "FG 40-49", value: "2" },
+                    { label: "FG 50+", value: "1" },
+                    { label: "FG 40-49", value: "4" },
                     { label: "Total FG", value: "6" },
-                    { label: "XP Made", value: "1" }
+                    { label: "XP Made", value: "2" }
                 ]
             },
             {
@@ -1448,14 +1412,14 @@
                 number: "DEF",
                 week: "Week 1, 2023",
                 fpts: "35.00 pts",
-                headshot: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
+                headshot: "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/dal.png",
                 teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
                 owner: "Texas Teabaggers",
                 stats: [
                     { label: "Sacks", value: "7" },
-                    { label: "Interceptions", value: "1" },
-                    { label: "Fum Rec", value: "2" },
-                    { label: "Def TD", value: "1" }
+                    { label: "Interceptions", value: "2" },
+                    { label: "Fum Rec", value: "1" },
+                    { label: "Def TD", value: "2" }
                 ]
             }
         ];
@@ -1505,6 +1469,175 @@
                     </div>
                 </article>
             `).join('');
+        });
+    </script>
+
+    <!-- Playoff Scenario Generator Logic -->
+    <script>
+        const baseTeams = [
+            { id: 1, name: "Moore Nuts Allen Ya Mouth", wins: 6, losses: 2, pf: 1115.72 },
+            { id: 2, name: "Jacksonville Jarheads", wins: 6, losses: 2, pf: 1014.72 },
+            { id: 3, name: "Zirk Squad", wins: 5, losses: 3, pf: 1091.36 },
+            { id: 4, name: "SHHHHH THECHAMPISHERE", wins: 5, losses: 3, pf: 1065.76 },
+            { id: 5, name: "Cowboys and Illegal Aliens", wins: 4, losses: 4, pf: 1054.50 },
+            { id: 6, name: "It's Shough Time", wins: 3, losses: 5, pf: 1025.58 },
+            { id: 7, name: "Fin it to win it", wins: 3, losses: 5, pf: 1021.00 },
+            { id: 8, name: "Texas Teabaggers", wins: 3, losses: 5, pf: 997.78 },
+            { id: 9, name: "Love's Kummy Dumpster", wins: 3, losses: 5, pf: 937.20 },
+            { id: 10, name: "JOE BUCK YOURSELF", wins: 2, losses: 6, pf: 1000.70 }
+        ];
+
+        const remainingMatchups = [
+            { week: 9, awayId: 7, homeId: 6, awayName: "Fin it to win it", homeName: "It's Shough Time" },
+            { week: 9, awayId: 1, homeId: 4, awayName: "Moore Nuts Allen Ya Mouth", homeName: "SHHHHH THECHAMPISHERE" },
+            { week: 9, awayId: 8, homeId: 5, awayName: "Texas Teabaggers", homeName: "Cowboys and Illegal Aliens" },
+            { week: 9, awayId: 3, homeId: 2, awayName: "Zirk Squad", homeName: "Jacksonville Jarheads" },
+            { week: 9, awayId: 9, homeId: 10, awayName: "Love's Kummy Dumpster", homeName: "JOE BUCK YOURSELF" },
+
+            { week: 10, awayId: 1, homeId: 7, awayName: "Moore Nuts Allen Ya Mouth", homeName: "Fin it to win it" },
+            { week: 10, awayId: 6, homeId: 8, awayName: "It's Shough Time", homeName: "Texas Teabaggers" },
+            { week: 10, awayId: 4, homeId: 3, awayName: "SHHHHH THECHAMPISHERE", homeName: "Zirk Squad" },
+            { week: 10, awayId: 5, homeId: 9, awayName: "Cowboys and Illegal Aliens", homeName: "Love's Kummy Dumpster" },
+            { week: 10, awayId: 2, homeId: 10, awayName: "Jacksonville Jarheads", homeName: "JOE BUCK YOURSELF" },
+
+            { week: 11, awayId: 7, homeId: 8, awayName: "Fin it to win it", homeName: "Texas Teabaggers" },
+            { week: 11, awayId: 3, homeId: 1, awayName: "Zirk Squad", homeName: "Moore Nuts Allen Ya Mouth" },
+            { week: 11, awayId: 9, homeId: 6, awayName: "Love's Kummy Dumpster", homeName: "It's Shough Time" },
+            { week: 11, awayId: 10, homeId: 4, awayName: "JOE BUCK YOURSELF", homeName: "SHHHHH THECHAMPISHERE" },
+            { week: 11, awayId: 2, homeId: 5, awayName: "Jacksonville Jarheads", homeName: "Cowboys and Illegal Aliens" }
+        ];
+
+        function initScenarioDropdown() {
+            const select = document.getElementById('team-scenario-select');
+            if (!select) return;
+            select.innerHTML = '';
+            baseTeams.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t.id;
+                opt.textContent = `${t.name} (${t.wins}-${t.losses})`;
+                select.appendChild(opt);
+            });
+            analyzeTeamScenarios();
+        }
+
+        function analyzeTeamScenarios() {
+            const select = document.getElementById('team-scenario-select');
+            if (!select) return;
+            const targetTeamId = parseInt(select.value);
+            const targetTeamObj = baseTeams.find(t => t.id === targetTeamId);
+
+            const totalScenarios = 1 << remainingMatchups.length;
+            let playoffCount = 0;
+            let byeCount = 0;
+            let matchingScenarios = [];
+
+            for (let i = 0; i < totalScenarios; i++) {
+                let simMap = {};
+                baseTeams.forEach(t => {
+                    simMap[t.id] = { wins: t.wins, losses: t.losses, pf: t.pf, name: t.name, id: t.id };
+                });
+
+                let outcomeDesc = [];
+                for (let m = 0; m < remainingMatchups.length; m++) {
+                    const match = remainingMatchups[m];
+                    const winnerId = (i & (1 << m)) ? match.homeId : match.awayId;
+                    simMap[winnerId].wins++;
+                    const loserId = (winnerId === match.homeId) ? match.awayId : match.homeId;
+                    simMap[loserId].losses++;
+
+                    if (match.awayId === targetTeamId || match.homeId === targetTeamId) {
+                        const winnerName = (winnerId === match.homeId) ? match.homeName : match.awayName;
+                        outcomeDesc.push(`Wk ${match.week}: ${winnerName} wins`);
+                    }
+                }
+
+                let standings = Object.values(simMap).sort((a, b) => {
+                    if (b.wins !== a.wins) return b.wins - a.wins;
+                    return b.pf - a.pf;
+                });
+
+                const rank = standings.findIndex(t => t.id === targetTeamId) + 1;
+                const madePlayoffs = rank <= 6;
+                const gotBye = rank <= 2;
+
+                if (madePlayoffs) playoffCount++;
+                if (gotBye) byeCount++;
+
+                if (madePlayoffs && matchingScenarios.length < 20) {
+                    matchingScenarios.push({
+                        rank: rank,
+                        wins: simMap[targetTeamId].wins,
+                        losses: simMap[targetTeamId].losses,
+                        summary: outcomeDesc.join(' | ')
+                    });
+                }
+            }
+
+            const playoffPct = ((playoffCount / totalScenarios) * 100).toFixed(1);
+            const byePct = ((byeCount / totalScenarios) * 100).toFixed(1);
+
+            const summaryContainer = document.getElementById('scenario-summary');
+            if (summaryContainer) {
+                summaryContainer.innerHTML = `
+                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Playoff Probability</div>
+                        <div class="text-3xl font-black text-emerald-400 mt-1">${playoffPct}%</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">Top 6 Qualification</div>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">First-Round Bye Odds</div>
+                        <div class="text-3xl font-black text-amber-400 mt-1">${byePct}%</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">Top 2 Seed Finish</div>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Current Record</div>
+                        <div class="text-3xl font-black text-white mt-1">${targetTeamObj.wins}-${targetTeamObj.losses}</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">PF: ${targetTeamObj.pf.toFixed(1)}</div>
+                    </div>
+                `;
+            }
+
+            const listContainer = document.getElementById('scenarios-list-container');
+            if (listContainer) {
+                listContainer.innerHTML = '';
+
+                if (matchingScenarios.length === 0) {
+                    listContainer.innerHTML = `<div class="text-slate-400 text-xs p-4 text-center">No playoff qualification paths found in remaining simulations.</div>`;
+                    return;
+                }
+
+                let uniqueScenarios = [];
+                let seen = new Set();
+                for (let sc of matchingScenarios) {
+                    if (!seen.has(sc.summary)) {
+                        seen.add(sc.summary);
+                        uniqueScenarios.push(sc);
+                    }
+                }
+
+                uniqueScenarios.slice(0, 15).forEach((sc, idx) => {
+                    const badgeColor = sc.rank <= 2 ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40';
+                    const item = document.createElement('div');
+                    item.className = "bg-slate-900 border border-slate-800 rounded-xl p-3.5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs";
+                    item.innerHTML = `
+                        <div class="space-y-1">
+                            <div class="font-semibold text-slate-200 flex items-center gap-2">
+                                <span class="text-amber-400">Scenario #${idx + 1}</span>
+                                <span class="text-slate-400">• Finish: ${sc.wins}-${sc.losses}</span>
+                            </div>
+                            <div class="text-slate-400 text-[11px]">${sc.summary}</div>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-full text-[10px] font-bold border uppercase tracking-wider ${badgeColor} shrink-0">
+                            Seed #${sc.rank} (${sc.rank <= 2 ? 'Bye' : 'Playoffs'})
+                        </span>
+                    `;
+                    listContainer.appendChild(item);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initScenarioDropdown();
         });
     </script>
 </body>
