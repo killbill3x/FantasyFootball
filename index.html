@@ -65,9 +65,9 @@
         </div>
         <div class="inline-block animate-marquee tracking-wide text-slate-100 space-x-8">
             <span>🏈 LEAGUE OF EXTRAORDINARY SH!T TALKERS • OFFICIAL ARCHIVES (2011–2025)</span> • 
-            <span>👑 TEXAS TEABAGGERSLEADS WITH 5 CHAMPIONSHIPS ('11, '12, '20, '22, '25)</span> • 
-            <span>⚡ ZIRK SQUAD HOLDS MOST WEEKLY POINTS (213.62 PTS, WK 2 2022)</span> • 
-            <span>🔥 ZIRK SQUAD SETS ALL-TIME PLAYOFF RECORD (345.96 PTS, 2025)</span>
+            <span>👑 BILLY LEADS WITH 5 CHAMPIONSHIPS ('11, '12, '20, '22, '25)</span> • 
+            <span>⚡ CALEB HOLDS MOST WEEKLY POINTS (213.62 PTS, WK 2 2022)</span> • 
+            <span>🔥 CALEB SETS ALL-TIME PLAYOFF RECORD (345.96 PTS, 2025)</span>
         </div>
     </div>
 
@@ -89,6 +89,7 @@
                 <button onclick="switchTab('players')" id="btn-players" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Player Records</button>
                 <button onclick="switchTab('h2h')" id="btn-h2h" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Head-to-Head</button>
                 <button onclick="switchTab('bylaws')" id="btn-bylaws" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Bylaws & Rules</button>
+                <button onclick="switchTab('playoffs')" id="btn-playoffs" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all text-slate-400 hover:text-white">Playoff Calculator</button>
             </nav>
         </div>
         <!-- Mobile Nav -->
@@ -98,6 +99,7 @@
             <button onclick="switchTab('players')" id="m-btn-players" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Player Records</button>
             <button onclick="switchTab('h2h')" id="m-btn-h2h" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Head-to-Head</button>
             <button onclick="switchTab('bylaws')" id="m-btn-bylaws" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Bylaws</button>
+            <button onclick="switchTab('playoffs')" id="m-btn-playoffs" class="whitespace-nowrap px-3 py-1.5 rounded font-bold text-slate-400">Playoffs</button>
         </div>
     </header>
 
@@ -128,105 +130,105 @@
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2025</div>
                         <div>
                             <div class="text-white font-bold text-sm">Texas Teabaggers</div>
-                            <div class="text-slate-400 text-xs">(5th Title)</div>
+                            <div class="text-slate-400 text-xs">Billy (5th Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2024</div>
                         <div>
                             <div class="text-white font-bold text-sm">Fin It to win It</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Todd (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2023</div>
                         <div>
                             <div class="text-white font-bold text-sm">PACKER BACKERS</div>
-                            <div class="text-slate-400 text-xs">(2nd Title)</div>
+                            <div class="text-slate-400 text-xs">Stephen (2nd Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2022</div>
                         <div>
                             <div class="text-white font-bold text-sm">Texas Teabaggers</div>
-                            <div class="text-slate-400 text-xs">(4th Title)</div>
+                            <div class="text-slate-400 text-xs">Billy (4th Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2021</div>
                         <div>
                             <div class="text-white font-bold text-sm">SHHHHH THECHAMPISHERE</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">CJ (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2020</div>
                         <div>
                             <div class="text-white font-bold text-sm">Texas Teabaggers</div>
-                            <div class="text-slate-400 text-xs">(3rd Title)</div>
+                            <div class="text-slate-400 text-xs">Billy (3rd Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2019</div>
                         <div>
                             <div class="text-white font-bold text-sm">Adrian Beat his son</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Wally (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2018</div>
                         <div>
                             <div class="text-white font-bold text-sm">PACKER BACKERS</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Stephen (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2017</div>
                         <div>
                             <div class="text-white font-bold text-sm">Barely Gettin Bye</div>
-                            <div class="text-slate-400 text-xs">(3rd Title)</div>
+                            <div class="text-slate-400 text-xs">Will (3rd Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2016</div>
                         <div>
                             <div class="text-white font-bold text-sm">Barely Gettin Bye</div>
-                            <div class="text-slate-400 text-xs">(2nd Title)</div>
+                            <div class="text-slate-400 text-xs">Will (2nd Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2015</div>
                         <div>
                             <div class="text-white font-bold text-sm">Cruz Control</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Brandon (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2014</div>
                         <div>
                             <div class="text-white font-bold text-sm">Sayre MustangGT5.0</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Nick (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2013</div>
                         <div>
                             <div class="text-white font-bold text-sm">Barely Gettin Bye</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Will (1st Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800, p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2012</div>
                         <div>
                             <div class="text-white font-bold text-sm">Texas Teabaggers</div>
-                            <div class="text-slate-400 text-xs">(2nd Title)</div>
+                            <div class="text-slate-400 text-xs">Billy (2nd Title)</div>
                         </div>
                     </div>
                     <div class="bg-black border border-slate-800 p-4 rounded-xl flex items-center space-x-4">
                         <div class="gold-plate text-slate-950 font-black px-3 py-2 rounded-lg text-sm shadow">2011</div>
                         <div>
                             <div class="text-white font-bold text-sm">Texas Teabaggers</div>
-                            <div class="text-slate-400 text-xs">(1st Title)</div>
+                            <div class="text-slate-400 text-xs">Billy (1st Title)</div>
                         </div>
                     </div>
                 </div>
@@ -236,22 +238,22 @@
                 <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-amber-500">
                     <div class="text-amber-500 text-xl mb-2"><i class="fa-solid fa-crown"></i></div>
                     <div class="text-2xl sm:text-3xl font-black text-white">5 Titles</div>
-                    <div class="text-xs text-slate-400 font-medium mt-1">Most Championships (Texas Teabaggers)</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Championships (Billy)</div>
                 </div>
                 <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-espngreen-600">
                     <div class="text-espngreen-600 text-xl mb-2"><i class="fa-solid fa-bolt"></i></div>
                     <div class="text-2xl sm:text-3xl font-black text-white">213.62 pts</div>
-                    <div class="text-xs text-slate-400 font-medium mt-1">Most Weekly Points (Zirk Squad, Wk 2 2022)</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Weekly Points (Caleb, Wk 2 2022)</div>
                 </div>
                 <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-amber-500">
                     <div class="text-amber-500 text-xl mb-2"><i class="fa-solid fa-shield-halved"></i></div>
                     <div class="text-2xl sm:text-3xl font-black text-white">345.96 pts</div>
-                    <div class="text-xs text-slate-400 font-medium mt-1">Most Playoff Points (Zirk Squad, '25)</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Most Playoff Points (Caleb, '25)</div>
                 </div>
                 <div class="bg-gridiron-900 border border-slate-800 p-6 rounded-2xl shadow-xl border-t-4 border-espngreen-600">
                     <div class="text-espngreen-600 text-xl mb-2"><i class="fa-solid fa-fire"></i></div>
                     <div class="text-2xl sm:text-3xl font-black text-white">10–2</div>
-                    <div class="text-xs text-slate-400 font-medium mt-1">Best Regular Season (Texas Teabaggers, 2022)</div>
+                    <div class="text-xs text-slate-400 font-medium mt-1">Best Regular Season (Billy, 2022)</div>
                 </div>
             </div>
         </section>
@@ -301,9 +303,9 @@
                                 <td class="py-4 px-4 text-right font-black text-red-500">915.00 PF</td>
                                 <td class="py-4 px-4 text-center text-slate-400">2015</td>
                             </tr>
-                            <tr class="hover:bg-slate-850/50"Sayre MustangGT5.0>
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-4 px-4 font-bold text-white">Most PA in a Season</td>
-                                <td class="py-4 px-4 text-slate-300">Sayre MustangGT5.0/<td>
+                                <td class="py-4 px-4 text-slate-300">Sayre MustangGT5.0</td>
                                 <td class="py-4 px-4 text-right font-black text-red-500">1,724.54 PA</td>
                                 <td class="py-4 px-4 text-center text-slate-400">2022</td>
                             </tr>
@@ -324,7 +326,7 @@
                 </div>
             </div>
 
-            <!-- All-Time Regular Season Manager Records Section (Sorted Descending by W %, Omitting Team Beat Dat Ass) -->
+            <!-- All-Time Regular Season Manager Records Section -->
             <div class="bg-gridiron-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
                 <h3 class="text-xl font-black uppercase italic text-white mb-2 flex items-center"><i class="fa-solid fa-users text-amber-500 mr-2"></i> All-Time Regular Season Manager Records (2011–2025)</h3>
                 <p class="text-slate-400 text-sm mb-6">Comprehensive regular season performance metrics tracked across all active, former, and memorial league managers.</p>
@@ -343,7 +345,7 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-800 text-sm">
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Moore Nuts Allen Ya Mouth</td>
                                 <td class="py-3 px-4 text-center text-slate-300">5</td>
                                 <td class="py-3 px-4 text-center text-slate-300">2</td>
@@ -353,8 +355,17 @@
                                 <td class="py-3 px-4 text-right text-slate-300">913.40</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+39.22</td>
                             </tr>
-                                
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
+                                <td class="py-3 px-4 font-bold text-white">Knobgobblers</td>
+                                <td class="py-3 px-4 text-center text-slate-300">8</td>
+                                <td class="py-3 px-4 text-center text-slate-300">5</td>
+                                <td class="py-3 px-4 text-center font-bold text-slate-200">13</td>
+                                <td class="py-3 px-4 text-center text-amber-400 font-bold">61.5%</td>
+                                <td class="py-3 px-4 text-right text-slate-300">1295.00</td>
+                                <td class="py-3 px-4 text-right text-slate-300">1216.00</td>
+                                <td class="py-3 px-4 text-right font-black text-emerald-400">+79.00</td>
+                            </tr>
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Fin it to win it</td>
                                 <td class="py-3 px-4 text-center text-slate-300">31</td>
                                 <td class="py-3 px-4 text-center text-slate-300">20</td>
@@ -364,7 +375,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">6351.02</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+316.78</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Skillz That Killz</td>
                                 <td class="py-3 px-4 text-center text-slate-300">19</td>
                                 <td class="py-3 px-4 text-center text-slate-300">14</td>
@@ -374,7 +385,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">3009.46</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+221.66</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Texas Teabaggers</td>
                                 <td class="py-3 px-4 text-center text-slate-300">86</td>
                                 <td class="py-3 px-4 text-center text-slate-300">68</td>
@@ -384,7 +395,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">16740.45</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+649.71</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">PACKER BACKERS</td>
                                 <td class="py-3 px-4 text-center text-slate-300">53</td>
                                 <td class="py-3 px-4 text-center text-slate-300">42</td>
@@ -394,7 +405,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">10861.52</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+653.02</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">JOE BUCK YOURSELF</td>
                                 <td class="py-3 px-4 text-center text-slate-300">83</td>
                                 <td class="py-3 px-4 text-center text-slate-300">71</td>
@@ -404,7 +415,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">17187.54</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-9.04</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Adrian Beat His son</td>
                                 <td class="py-3 px-4 text-center text-slate-300">41</td>
                                 <td class="py-3 px-4 text-center text-slate-300">36</td>
@@ -414,7 +425,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">7765.27</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+255.20</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Zirk Squad</td>
                                 <td class="py-3 px-4 text-center text-slate-300">43</td>
                                 <td class="py-3 px-4 text-center text-slate-300">41</td>
@@ -424,7 +435,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">9813.46</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+365.50</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">SHHHHH THECHAMPISHERE</td>
                                 <td class="py-3 px-4 text-center text-slate-300">64</td>
                                 <td class="py-3 px-4 text-center text-slate-300">64</td>
@@ -434,7 +445,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">14259.22</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+164.24</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Barely Gettin Bye</td>
                                 <td class="py-3 px-4 text-center text-slate-300">73</td>
                                 <td class="py-3 px-4 text-center text-slate-300">74</td>
@@ -444,7 +455,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">16181.44</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-329.32</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Jacksonville Jarheads</td>
                                 <td class="py-3 px-4 text-center text-slate-300">19</td>
                                 <td class="py-3 px-4 text-center text-slate-300">21</td>
@@ -454,7 +465,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">4646.64</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-58.84</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Men In Black</td>
                                 <td class="py-3 px-4 text-center text-slate-300">6</td>
                                 <td class="py-3 px-4 text-center text-slate-300">7</td>
@@ -464,7 +475,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">1233.00</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+24.00</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Cruz Control</td>
                                 <td class="py-3 px-4 text-center text-slate-300">25</td>
                                 <td class="py-3 px-4 text-center text-slate-300">30</td>
@@ -474,7 +485,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">5514.70</td>
                                 <td class="py-3 px-4 text-right font-black text-emerald-400">+79.47</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">TX Refried BNRS BNR BOB</td>
                                 <td class="py-3 px-4 text-center text-slate-300">5</td>
                                 <td class="py-3 px-4 text-center text-slate-300">6</td>
@@ -484,7 +495,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">1210.70</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-87.28</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">One GIANT Step</td>
                                 <td class="py-3 px-4 text-center text-slate-300">66</td>
                                 <td class="py-3 px-4 text-center text-slate-300">81</td>
@@ -494,7 +505,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">16082.84</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-473.46</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Cowboys and Illegal Aliens</td>
                                 <td class="py-3 px-4 text-center text-slate-300">66</td>
                                 <td class="py-3 px-4 text-center text-slate-300">88</td>
@@ -504,7 +515,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">17474.48</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-1276.90</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">It's Shough Time</td>
                                 <td class="py-3 px-4 text-center text-slate-300">3</td>
                                 <td class="py-3 px-4 text-center text-slate-300">4</td>
@@ -514,7 +525,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">965.74</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-57.24</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Sayre MustangGT5.0</td>
                                 <td class="py-3 px-4 text-center text-slate-300">23</td>
                                 <td class="py-3 px-4 text-center text-slate-300">32</td>
@@ -524,7 +535,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">5989.78</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-274.50</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Secret Project #69</td>
                                 <td class="py-3 px-4 text-center text-slate-300">10</td>
                                 <td class="py-3 px-4 text-center text-slate-300">16</td>
@@ -534,7 +545,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">2882.00</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-153.00</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Furious Hungry Cowboys</td>
                                 <td class="py-3 px-4 text-center text-slate-300">5</td>
                                 <td class="py-3 px-4 text-center text-slate-300">8</td>
@@ -544,7 +555,7 @@
                                 <td class="py-3 px-4 text-right text-slate-300">1426.00</td>
                                 <td class="py-3 px-4 text-right font-black text-red-400">-148.00</td>
                             </tr>
-                                        <tr class="hover:bg-slate-850/50">
+                            <tr class="hover:bg-slate-850/50">
                                 <td class="py-3 px-4 font-bold text-white">Japanese Ball Fondlers</td>
                                 <td class="py-3 px-4 text-center text-slate-300">2</td>
                                 <td class="py-3 px-4 text-center text-slate-300">9</td>
@@ -710,7 +721,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-2",
         "TX Refried BNRS BNR BOB": "0-1",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-6",
         "Zirk Squad": "2-1"
     },
@@ -734,7 +744,6 @@
         "Secret Project #69": "3-1",
         "Skillz That Killz": "2-1",
         "TX Refried BNRS BNR BOB": "0-1",
-        "Team Beat Dat Ass": "0-1",
         "Texas Teabaggers": "8-12",
         "Zirk Squad": "4-3"
     },
@@ -758,7 +767,6 @@
         "Secret Project #69": "3-1",
         "Skillz That Killz": "2-1",
         "TX Refried BNRS BNR BOB": "1-1",
-        "Team Beat Dat Ass": "1-1",
         "Texas Teabaggers": "5-11",
         "Zirk Squad": "6-4"
     },
@@ -782,7 +790,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "2-1",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "5-3",
         "Zirk Squad": "0-1"
     },
@@ -806,7 +813,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-2",
         "Zirk Squad": "3-4"
     },
@@ -830,7 +836,6 @@
         "Secret Project #69": "0-2",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "1-1",
         "Texas Teabaggers": "0-2",
         "Zirk Squad": "0-0"
     },
@@ -854,7 +859,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "0-1",
         "Zirk Squad": "1-0"
     },
@@ -878,7 +882,6 @@
         "Secret Project #69": "2-1",
         "Skillz That Killz": "2-1",
         "TX Refried BNRS BNR BOB": "1-0",
-        "Team Beat Dat Ass": "1-1",
         "Texas Teabaggers": "7-11",
         "Zirk Squad": "4-6"
     },
@@ -902,7 +905,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-3",
         "Zirk Squad": "0-3"
     },
@@ -926,7 +928,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "0-1",
         "Zirk Squad": "0-1"
     },
@@ -950,7 +951,6 @@
         "Secret Project #69": "2-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "1-1",
         "Zirk Squad": "0-0"
     },
@@ -974,7 +974,6 @@
         "Secret Project #69": "2-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "0-2",
         "Zirk Squad": "0-0"
     },
@@ -998,7 +997,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "1-0",
         "Zirk Squad": "0-1"
     },
@@ -1022,7 +1020,6 @@
         "Secret Project #69": "2-2",
         "Skillz That Killz": "2-4",
         "TX Refried BNRS BNR BOB": "1-0",
-        "Team Beat Dat Ass": "0-2",
         "Texas Teabaggers": "7-8",
         "Zirk Squad": "4-5"
     },
@@ -1046,7 +1043,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "1-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "5-8",
         "Zirk Squad": "6-4"
     },
@@ -1070,7 +1066,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "3-3",
         "TX Refried BNRS BNR BOB": "0-1",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "7-6",
         "Zirk Squad": "5-3"
     },
@@ -1094,7 +1089,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-5",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-2",
         "Zirk Squad": "1-1"
     },
@@ -1118,7 +1112,6 @@
         "Sayre MustangGT5.0": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-2",
         "Texas Teabaggers": "3-0",
         "Zirk Squad": "0-0"
     },
@@ -1142,7 +1135,6 @@
         "Sayre MustangGT5.0": "5-1",
         "Secret Project #69": "0-0",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "0-0",
         "Zirk Squad": "0-0"
     },
@@ -1166,33 +1158,8 @@
         "Sayre MustangGT5.0": "0-0",
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "1-1",
         "Zirk Squad": "0-1"
-    },
-    "Team Beat Dat Ass": {
-        "Adrian Beat His son": "0-0",
-        "Barely Gettin Bye": "1-0",
-        "Cowboys and Illegal Aliens": "1-1",
-        "Cruz Control": "0-0",
-        "Fin it to win it": "0-0",
-        "Furious Hungry Cowboys": "1-1",
-        "It's Shough Time": "0-0",
-        "JOE BUCK YOURSELF": "2-0",
-        "Jacksonville Jarheads": "0-0",
-        "Japanese Ball Fondlers": "0-0",
-        "Knobgobblers": "0-0",
-        "Men In Black": "0-0",
-        "Moore Nuts Allen Ya Mouth": "0-0",
-        "One GIANT Step": "2-0",
-        "PACKER BACKERS": "0-0",
-        "SHHHHH THECHAMPISHERE": "0-0",
-        "Sayre MustangGT5.0": "0-0",
-        "Secret Project #69": "2-0",
-        "Skillz That Killz": "0-0",
-        "TX Refried BNRS BNR BOB": "0-0",
-        "Texas Teabaggers": "2-0",
-        "Zirk Squad": "0-0"
     },
     "Texas Teabaggers": {
         "Adrian Beat His son": "6-3",
@@ -1215,7 +1182,6 @@
         "Secret Project #69": "0-3",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "1-1",
-        "Team Beat Dat Ass": "0-2",
         "Zirk Squad": "5-5"
     },
     "Zirk Squad": {
@@ -1239,7 +1205,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "0-0",
         "TX Refried BNRS BNR BOB": "1-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "5-5"
     }
 };
@@ -1346,7 +1311,8 @@
                 week: "Week 18, 2025",
                 fpts: "27.80 pts",
                 headshot: "https://a.espncdn.com/i/headshots/nfl/players/full/2971573.png",
-                owner: "Fin It To Win It",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/hou.png",
+                owner: "Fin it to win it",
                 stats: [
                     { label: "FG 50+", value: "1" },
                     { label: "FG 40-49", value: "4" },
@@ -1357,11 +1323,12 @@
             {
                 position: "DEF",
                 name: "Dallas Cowboys",
-                team: "Cowboys D/ST",
+                team: "Dallas Cowboys D/ST",
                 number: "DEF",
                 week: "Week 1, 2023",
                 fpts: "35.00 pts",
                 headshot: "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nfl/500/dal.png",
+                teamLogo: "https://a.espncdn.com/i/teamlogos/nfl/50/dal.png",
                 owner: "Texas Teabaggers",
                 stats: [
                     { label: "Sacks", value: "7" },
