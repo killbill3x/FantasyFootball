@@ -615,7 +615,7 @@
                 <div class="bg-gradient-to-r from-espngreen-700/20 to-amber-500/10 border border-espngreen-600/40 rounded-2xl p-6 text-center shadow-lg">
                     <div class="text-xs uppercase font-bold tracking-widest text-slate-400 mb-1">Lifetime Matchup Record</div>
                     <div id="h2h-score-display" class="text-4xl sm:text-5xl font-black text-white italic tracking-tight my-2">8–6</div>
-                    <div id="h2sh-note-display" class="text-xs text-slate-300 font-medium">Regular Season Battles Recorded Across League History</div>
+                    <div id="h2h-note-display" class="text-xs text-slate-300 font-medium">Regular Season Battles Recorded Across League History</div>
                 </div>
             </div>
         </section>
@@ -761,7 +761,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-2",
         "TX Refried BNRS BNR BOB": "0-1",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-6",
         "Zirk Squad": "2-1"
     },
@@ -1145,7 +1144,6 @@
         "Secret Project #69": "0-0",
         "Skillz That Killz": "1-5",
         "TX Refried BNRS BNR BOB": "0-0",
-        "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "3-2",
         "Zirk Squad": "1-1"
     },
@@ -1200,7 +1198,7 @@
     "TX Refried BNRS BNR BOB": {
         "Adrian Beat His son": "1-0",
         "Barely Gettin Bye": "1-0",
-        "Cowboys and Illegal Aliens": "1-1",
+        "Cowboys and Skillz": "1-1",
         "Cruz Control": "0-0",
         "Fin it to win it": "0-0",
         "Furious Hungry Cowboys": "0-0",
@@ -1220,30 +1218,6 @@
         "Team Beat Dat Ass": "0-0",
         "Texas Teabaggers": "1-1",
         "Zirk Squad": "0-1"
-    },
-    "Team Beat Dat Ass": {
-        "Adrian Beat His son": "0-0",
-        "Barely Gettin Bye": "1-0",
-        "Cowboys and Illegal Aliens": "1-1",
-        "Cruz Control": "0-0",
-        "Fin it to win it": "0-0",
-        "Furious Hungry Cowboys": "1-1",
-        "It's Shough Time": "0-0",
-        "JOE BUCK YOURSELF": "2-0",
-        "Jacksonville Jarheads": "0-0",
-        "Japanese Ball Fondlers": "0-0",
-        "Knobgobblers": "0-0",
-        "Men In Black": "0-0",
-        "Moore Nuts Allen Ya Mouth": "0-0",
-        "One GIANT Step": "2-0",
-        "PACKER BACKERS": "0-0",
-        "SHHHHH THECHAMPISHERE": "0-0",
-        "Sayre MustangGT5.0": "0-0",
-        "Secret Project #69": "2-0",
-        "Skillz That Killz": "0-0",
-        "TX Refried BNRS BNR BOB": "0-0",
-        "Texas Teabaggers": "2-0",
-        "Zirk Squad": "0-0"
     },
     "Texas Teabaggers": {
         "Adrian Beat His son": "6-3",
@@ -1298,7 +1272,7 @@
             const m1 = document.getElementById('mgr1-select').value;
             const m2 = document.getElementById('mgr2-select').value;
             const display = document.getElementById('h2h-score-display');
-            const note = document.getElementById('h2sh-note-display');
+            const note = document.getElementById('h2h-note-display');
 
             if (m1 === m2) {
                 display.innerText = "—";
@@ -1471,163 +1445,4 @@
             `).join('');
         });
     </script>
-
-    <!-- Playoff Scenario Generator Logic -->
-    <script>
-        const baseTeams = [
-            { id: 1, name: "Moore Nuts Allen Ya Mouth", wins: 6, losses: 2, pf: 1115.72 },
-            { id: 2, name: "Jacksonville Jarheads", wins: 6, losses: 2, pf: 1014.72 },
-            { id: 3, name: "Zirk Squad", wins: 5, losses: 3, pf: 1091.36 },
-            { id: 4, name: "SHHHHH THECHAMPISHERE", wins: 5, losses: 3, pf: 1065.76 },
-            { id: 5, name: "Cowboys and Illegal Aliens", wins: 4, losses: 4, pf: 1054.50 },
-            { id: 6, name: "It's Shough Time", wins: 3, losses: 5, pf: 1025.58 },
-            { id: 7, name: "Fin it to win it", wins: 3, losses: 5, pf: 1021.00 },
-            { id: 8, name: "Texas Teabaggers", wins: 3, losses: 5, pf: 997.78 },
-            { id: 9, name: "Love's Kummy Dumpster", wins: 3, losses: 5, pf: 937.20 },
-            { id: 10, name: "JOE BUCK YOURSELF", wins: 2, losses: 6, pf: 1000.70 }
-        ];
-
-        const remainingMatchups = [
-            { week: 9, awayId: 7, homeId: 6, awayName: "Fin it to win it", homeName: "It's Shough Time" },
-            { week: 9, awayId: 1, homeId: 4, awayName: "Moore Nuts Allen Ya Mouth", homeName: "SHHHHH THECHAMPISHERE" },
-            { week: 9, awayId: 8, homeId: 5, awayName: "Texas Teabaggers", homeName: "Cowboys and Illegal Aliens" },
-            { week: 9, awayId: 3, homeId: 2, awayName: "Zirk Squad", homeName: "Jacksonville Jarheads" },
-            { week: 9, awayId: 9, homeId: 10, awayName: "Love's Kummy Dumpster", homeName: "JOE BUCK YOURSELF" },
-
-            { week: 10, awayId: 1, homeId: 7, awayName: "Moore Nuts Allen Ya Mouth", homeName: "Fin it to win it" },
-            { week: 10, awayId: 6, homeId: 8, awayName: "It's Shough Time", homeName: "Texas Teabaggers" },
-            { week: 10, awayId: 4, homeId: 3, awayName: "SHHHHH THECHAMPISHERE", homeName: "Zirk Squad" },
-            { week: 10, awayId: 5, homeId: 9, awayName: "Cowboys and Illegal Aliens", homeName: "Love's Kummy Dumpster" },
-            { week: 10, awayId: 2, homeId: 10, awayName: "Jacksonville Jarheads", homeName: "JOE BUCK YOURSELF" },
-
-            { week: 11, awayId: 7, homeId: 8, awayName: "Fin it to win it", homeName: "Texas Teabaggers" },
-            { week: 11, awayId: 3, homeId: 1, awayName: "Zirk Squad", homeName: "Moore Nuts Allen Ya Mouth" },
-            { week: 11, awayId: 9, homeId: 6, awayName: "Love's Kummy Dumpster", homeName: "It's Shough Time" },
-            { week: 11, awayId: 10, homeId: 4, awayName: "JOE BUCK YOURSELF", homeName: "SHHHHH THECHAMPISHERE" },
-            { week: 11, awayId: 2, homeId: 5, awayName: "Jacksonville Jarheads", homeName: "Cowboys and Illegal Aliens" }
-        ];
-
-        function initScenarioDropdown() {
-            const select = document.getElementById('team-scenario-select');
-            if (!select) return;
-            select.innerHTML = '';
-            baseTeams.forEach(t => {
-                const opt = document.createElement('option');
-                opt.value = t.id;
-                opt.textContent = `${t.name} (${t.wins}-${t.losses})`;
-                select.appendChild(opt);
-            });
-            analyzeTeamScenarios();
-        }
-
-        function analyzeTeamScenarios() {
-            const select = document.getElementById('team-scenario-select');
-            if (!select) return;
-            const targetTeamId = parseInt(select.value);
-            const targetTeamObj = baseTeams.find(t => t.id === targetTeamId);
-
-            const totalScenarios = 1 << remainingMatchups.length;
-            let playoffCount = 0;
-            let byeCount = 0;
-            let matchingScenarios = [];
-
-            for (let i = 0; i < totalScenarios; i++) {
-                let simMap = {};
-                baseTeams.forEach(t => {
-                    simMap[t.id] = { wins: t.wins, losses: t.losses, pf: t.pf, name: t.name, id: t.id };
-                });
-
-                let outcomeDesc = [];
-                for (let m = 0; m < remainingMatchups.length; m++) {
-                    const match = remainingMatchups[m];
-                    const winnerId = (i & (1 << m)) ? match.homeId : match.awayId;
-                    simMap[winnerId].wins++;
-                    const loserId = (winnerId === match.homeId) ? match.awayId : match.homeId;
-                    simMap[loserId].losses++;
-
-                    const winnerName = (winnerId === match.homeId) ? match.homeName : match.awayName;
-                    const loserName = (loserId === match.homeId) ? match.homeName : match.awayName;
-                    outcomeDesc.push(`W${match.week}: ${winnerName} def. ${loserName}`);
-                }
-
-                let standings = Object.values(simMap).sort((a, b) => {
-                    if (b.wins !== a.wins) return b.wins - a.wins;
-                    return b.pf - a.pf;
-                });
-
-                const rank = standings.findIndex(t => t.id === targetTeamId) + 1;
-                const madePlayoffs = rank <= 6;
-                const gotBye = rank <= 2;
-
-                if (madePlayoffs) playoffCount++;
-                if (gotBye) byeCount++;
-
-                if (madePlayoffs && matchingScenarios.length < 30) {
-                    matchingScenarios.push({
-                        rank: rank,
-                        wins: simMap[targetTeamId].wins,
-                        losses: simMap[targetTeamId].losses,
-                        scenariosList: outcomeDesc
-                    });
-                }
-            }
-
-            const playoffPct = ((playoffCount / totalScenarios) * 100).toFixed(1);
-            const byePct = ((byeCount / totalScenarios) * 100).toFixed(1);
-
-            const summaryContainer = document.getElementById('scenario-summary');
-            if (summaryContainer) {
-                summaryContainer.innerHTML = `
-                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
-                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Playoff Probability</div>
-                        <div class="text-3xl font-black text-emerald-400 mt-1">${playoffPct}%</div>
-                        <div class="text-[11px] text-slate-500 mt-0.5">Top 6 Qualification</div>
-                    </div>
-                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
-                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">First-Round Bye Odds</div>
-                        <div class="text-3xl font-black text-amber-400 mt-1">${byePct}%</div>
-                        <div class="text-[11px] text-slate-500 mt-0.5">Top 2 Seed Finish</div>
-                    </div>
-                    <div class="bg-slate-950/60 border border-slate-800 rounded-2xl p-4 text-center shadow-inner">
-                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400">Current Record</div>
-                        <div class="text-3xl font-black text-white mt-1">${targetTeamObj.wins}-${targetTeamObj.losses}</div>
-                        <div class="text-[11px] text-slate-500 mt-0.5">PF: ${targetTeamObj.pf.toFixed(1)}</div>
-                    </div>
-                `;
-            }
-
-            const listContainer = document.getElementById('scenarios-list-container');
-            if (listContainer) {
-                listContainer.innerHTML = '';
-
-                if (matchingScenarios.length === 0) {
-                    listContainer.innerHTML = `<div class="text-slate-400 text-xs p-4 text-center">No playoff qualification paths found in remaining simulations.</div>`;
-                    return;
-                }
-
-                matchingScenarios.forEach((sc, idx) => {
-                    const badgeColor = sc.rank <= 2 ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40';
-                    const item = document.createElement('div');
-                    item.className = "bg-slate-900 border border-slate-800 rounded-xl p-3.5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs";
-                    item.innerHTML = `
-                        <div class="space-y-1 w-full">
-                            <div class="font-bold text-amber-400 flex items-center justify-between">
-                                <span>Path #${idx + 1} (Finish: ${sc.wins}-${sc.losses})</span>
-                                <span class="px-2 py-0.5 rounded text-[10px] border uppercase ${badgeColor}">Seed #${sc.rank}</span>
-                            </div>
-                            <div class="text-slate-300 text-[11px] font-mono bg-slate-950 p-2 rounded border border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-1">
-                                ${sc.scenariosList.map(itemStr => `<div>• ${itemStr}</div>`).join('')}
-                            </div>
-                        </div>
-                    `;
-                    listContainer.appendChild(item);
-                });
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            initScenarioDropdown();
-        });
-    </script>
-</body>
 </html>
