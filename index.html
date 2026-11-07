@@ -127,6 +127,34 @@
                 </div>
             </div>
 
+            <!-- LIVE SCORING SCOREBOARD MODULE -->
+            <div class="bg-lmnavy-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                    <div class="flex items-center space-x-3">
+                        <h3 class="text-xl font-black uppercase italic text-white flex items-center">
+                            <span class="w-2.5 h-2.5 rounded-full bg-espngreen-600 animate-ping mr-2.5"></span>
+                            Live ESPN Matchups
+                        </h3>
+                        <span id="live-week-badge" class="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-lmblue-500/20 text-lmblue-400 border border-lmblue-500/30">
+                            Loading Week...
+                        </span>
+                    </div>
+                    <div class="flex items-center space-x-3 text-xs text-slate-400">
+                        <span id="live-last-updated">Syncing with ESPN...</span>
+                        <button onclick="fetchLiveScores()" class="px-2.5 py-1 rounded-lg bg-lmnavy-950 hover:bg-slate-800 text-lmblue-400 border border-slate-800 font-bold transition">
+                            <i class="fa-solid fa-rotate"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Matchups Grid -->
+                <div id="live-matchups-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="col-span-full py-8 text-center text-slate-400 text-sm">
+                        <i class="fa-solid fa-spinner fa-spin text-lmblue-400 mr-2"></i> Connecting to ESPN Fantasy Live Feed...
+                    </div>
+                </div>
+            </div>
+
             <!-- Complete List of Season Winners -->
             <div class="bg-lmnavy-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
                 <h3 class="text-xl font-black uppercase italic text-white mb-6 flex items-center"><i class="fa-solid fa-trophy text-lmblue-400 mr-2"></i> Complete List of Season Champions (2011–2025)</h3>
@@ -620,6 +648,8 @@
         window.addEventListener('DOMContentLoaded', () => {
             updateH2H();
             initPlayerCards();
+            fetchLiveScores();
+            setInterval(fetchLiveScores, 30000);
             
             const hash = window.location.hash.substring(1);
             if (hash && document.getElementById('tab-' + hash)) {
@@ -628,6 +658,93 @@
                 switchTab('overview');
             }
         });
+
+        // ESPN LIVE SCORING INTEGRATION (League ID: 140046)
+        const ESPN_LEAGUE_ID = '140046';
+        const ESPN_SEASON = 2026;
+        const ESPN_API_URL = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${ESPN_SEASON}/segments/0/leagues/${ESPN_LEAGUE_ID}?view=mMatchupScore&view=mScoreboard&view=mTeam`;
+
+        async function fetchLiveScores() {
+            const grid = document.getElementById('live-matchups-grid');
+            const weekBadge = document.getElementById('live-week-badge');
+            const updatedText = document.getElementById('live-last-updated');
+            if (!grid) return;
+
+            try {
+                const res = await fetch(ESPN_API_URL);
+                if (!res.ok) throw new Error('League may be private or unreachable.');
+                const data = await res.json();
+
+                const currentWeek = data.scoringPeriodId || data.status?.currentMatchupPeriod || 1;
+                weekBadge.textContent = `Week ${currentWeek}`;
+
+                const teamsMap = {};
+                (data.teams || []).forEach(t => {
+                    teamsMap[t.id] = {
+                        name: t.name || `${t.location || ''} ${t.nickname || ''}`.trim() || `Team ${t.id}`,
+                        logo: t.logo || 'logo.png',
+                        record: t.record?.overall ? `${t.record.overall.wins}-${t.record.overall.losses}` : ''
+                    };
+                });
+
+                const matchups = (data.schedule || []).filter(m => m.matchupPeriodId === currentWeek);
+
+                if (matchups.length === 0) {
+                    grid.innerHTML = `<div class="col-span-full py-6 text-center text-slate-400 text-sm">No active matchups found for Week ${currentWeek}.</div>`;
+                    return;
+                }
+
+                grid.innerHTML = matchups.map(m => {
+                    const away = teamsMap[m.away?.teamId] || { name: 'TBD', logo: 'logo.png', record: '' };
+                    const home = teamsMap[m.home?.teamId] || { name: 'BYE / TBD', logo: 'logo.png', record: '' };
+
+                    const awayScore = (m.away?.totalPointsLive ?? m.away?.totalPoints ?? 0).toFixed(2);
+                    const homeScore = (m.home?.totalPointsLive ?? m.home?.totalPoints ?? 0).toFixed(2);
+
+                    const awayWinning = parseFloat(awayScore) > parseFloat(homeScore);
+                    const homeWinning = parseFloat(homeScore) > parseFloat(awayScore);
+
+                    return `
+                        <div class="bg-lmnavy-950 border border-slate-800 hover:border-lmblue-500/40 rounded-2xl p-4 shadow-inner transition-all space-y-3">
+                            <!-- Away Team -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3 min-w-0">
+                                    <img src="${away.logo}" onerror="this.src='logo.png'" class="w-9 h-9 rounded-full bg-lmnavy-900 object-cover border border-slate-700 shrink-0">
+                                    <div class="truncate">
+                                        <div class="text-sm font-bold ${awayWinning ? 'text-white' : 'text-slate-300'} truncate">${away.name}</div>
+                                        <div class="text-[10px] text-slate-500 font-semibold">${away.record}</div>
+                                    </div>
+                                </div>
+                                <div class="text-lg font-black font-mono ${awayWinning ? 'text-emerald-400' : 'text-slate-200'}">${awayScore}</div>
+                            </div>
+
+                            <div class="border-t border-slate-800/80"></div>
+
+                            <!-- Home Team -->
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3 min-w-0">
+                                    <img src="${home.logo}" onerror="this.src='logo.png'" class="w-9 h-9 rounded-full bg-lmnavy-900 object-cover border border-slate-700 shrink-0">
+                                    <div class="truncate">
+                                        <div class="text-sm font-bold ${homeWinning ? 'text-white' : 'text-slate-300'} truncate">${home.name}</div>
+                                        <div class="text-[10px] text-slate-500 font-semibold">${home.record}</div>
+                                    </div>
+                                </div>
+                                <div class="text-lg font-black font-mono ${homeWinning ? 'text-emerald-400' : 'text-slate-200'}">${homeScore}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                const now = new Date();
+                updatedText.textContent = `Updated ${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+            } catch (err) {
+                console.error('ESPN Live Score Error:', err);
+                grid.innerHTML = `
+                    <div class="col-span-full bg-lmred-500/10 border border-lmred-500/30 rounded-xl p-4 text-center text-xs text-lmred-400">
+                        Could not load live ESPN scores for League #140046. Ensure your league is set to <strong>Make League Viewable to Public = Yes</strong> in ESPN LM Settings, or connect a proxy URL.
+                    </div>`;
+            }
+        }
 
         // H2H LOGIC
         function updateH2H() {
