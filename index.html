@@ -556,6 +556,27 @@
         <p class="font-bold text-slate-400">© 2011–2026 League of Extraordinary Sh!t Talkers • Powered by LeagueMate</p>
     </footer>
 
+    <!-- Live Matchup Boxscore Modal Overlay -->
+    <div id="matchupModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6">
+        <div class="bg-lmnavy-900 border-2 border-lmblue-500/50 rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+            <!-- Modal Header -->
+            <div class="bg-lmnavy-950 px-6 py-4 border-b border-slate-800 flex items-center justify-between shrink-0">
+                <div class="flex items-center space-x-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-espngreen-600 animate-ping"></span>
+                    <h3 id="matchupModalTitle" class="text-sm sm:text-base font-black uppercase italic text-white tracking-wider">Live Matchup Boxscore</h3>
+                </div>
+                <button onclick="closeMatchupModal()" class="text-slate-400 hover:text-white text-sm font-bold flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-lmnavy-900 border border-slate-800 transition">
+                    <i class="fa-solid fa-xmark"></i> Close
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable Roster Comparison) -->
+            <div id="matchupModalBody" class="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1">
+                <!-- Populated dynamically via openMatchupModal(idx) -->
+            </div>
+        </div>
+    </div>
+
     <!-- Brag Card Modal Overlay -->
     <div id="bragCardModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="relative flex flex-col items-center max-w-sm w-full">
@@ -659,10 +680,28 @@
             }
         });
 
-        // ESPN LIVE SCORING INTEGRATION (League ID: 140046)
+        // ESPN LIVE SCORING & BOXSCORE INTEGRATION (League ID: 140046)
         const ESPN_LEAGUE_ID = '140046';
         const ESPN_SEASON = 2026;
-        const ESPN_API_URL = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${ESPN_SEASON}/segments/0/leagues/${ESPN_LEAGUE_ID}?view=mMatchupScore&view=mScoreboard&view=mTeam`;
+        const ESPN_API_URL = `https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${ESPN_SEASON}/segments/0/leagues/${ESPN_LEAGUE_ID}?view=mMatchupScore&view=mScoreboard&view=mTeam&view=mBoxscore&view=mRoster`;
+
+        let liveMatchupsCache = [];
+        let liveTeamsMap = {};
+        let currentScoringWeek = 1;
+
+        const SLOT_MAP = {
+            0: { label: 'QB', order: 1 },
+            2: { label: 'RB', order: 2 },
+            4: { label: 'WR', order: 3 },
+            6: { label: 'TE', order: 4 },
+            23: { label: 'FLEX', order: 5 },
+            16: { label: 'D/ST', order: 6 },
+            17: { label: 'K', order: 7 },
+            20: { label: 'BENCH', order: 99 },
+            21: { label: 'IR', order: 100 }
+        };
+
+        const POS_MAP = { 1: 'QB', 2: 'RB', 3: 'WR', 4: 'TE', 5: 'K', 16: 'D/ST' };
 
         async function fetchLiveScores() {
             const grid = document.getElementById('live-matchups-grid');
@@ -675,28 +714,29 @@
                 if (!res.ok) throw new Error('League may be private or unreachable.');
                 const data = await res.json();
 
-                const currentWeek = data.scoringPeriodId || data.status?.currentMatchupPeriod || 1;
-                weekBadge.textContent = `Week ${currentWeek}`;
+                currentScoringWeek = data.scoringPeriodId || data.status?.currentMatchupPeriod || 1;
+                weekBadge.textContent = `Week ${currentScoringWeek}`;
 
-                const teamsMap = {};
+                liveTeamsMap = {};
                 (data.teams || []).forEach(t => {
-                    teamsMap[t.id] = {
+                    liveTeamsMap[t.id] = {
                         name: t.name || `${t.location || ''} ${t.nickname || ''}`.trim() || `Team ${t.id}`,
                         logo: t.logo || 'logo.png',
-                        record: t.record?.overall ? `${t.record.overall.wins}-${t.record.overall.losses}` : ''
+                        record: t.record?.overall ? `${t.record.overall.wins}-${t.record.overall.losses}` : '',
+                        rosterEntries: t.roster?.entries || []
                     };
                 });
 
-                const matchups = (data.schedule || []).filter(m => m.matchupPeriodId === currentWeek);
+                liveMatchupsCache = (data.schedule || []).filter(m => m.matchupPeriodId === currentScoringWeek);
 
-                if (matchups.length === 0) {
-                    grid.innerHTML = `<div class="col-span-full py-6 text-center text-slate-400 text-sm">No active matchups found for Week ${currentWeek}.</div>`;
+                if (liveMatchupsCache.length === 0) {
+                    grid.innerHTML = `<div class="col-span-full py-6 text-center text-slate-400 text-sm">No active matchups found for Week ${currentScoringWeek}.</div>`;
                     return;
                 }
 
-                grid.innerHTML = matchups.map(m => {
-                    const away = teamsMap[m.away?.teamId] || { name: 'TBD', logo: 'logo.png', record: '' };
-                    const home = teamsMap[m.home?.teamId] || { name: 'BYE / TBD', logo: 'logo.png', record: '' };
+                grid.innerHTML = liveMatchupsCache.map((m, idx) => {
+                    const away = liveTeamsMap[m.away?.teamId] || { name: 'TBD', logo: 'logo.png', record: '' };
+                    const home = liveTeamsMap[m.home?.teamId] || { name: 'BYE / TBD', logo: 'logo.png', record: '' };
 
                     const awayScore = (m.away?.totalPointsLive ?? m.away?.totalPoints ?? 0).toFixed(2);
                     const homeScore = (m.home?.totalPointsLive ?? m.home?.totalPoints ?? 0).toFixed(2);
@@ -705,13 +745,13 @@
                     const homeWinning = parseFloat(homeScore) > parseFloat(awayScore);
 
                     return `
-                        <div class="bg-lmnavy-950 border border-slate-800 hover:border-lmblue-500/40 rounded-2xl p-4 shadow-inner transition-all space-y-3">
+                        <div onclick="openMatchupModal(${idx})" class="bg-lmnavy-950 border border-slate-800 hover:border-lmblue-500/60 rounded-2xl p-4 shadow-inner transition-all space-y-3 cursor-pointer group" title="Click to view player boxscore">
                             <!-- Away Team -->
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-3 min-w-0">
                                     <img src="${away.logo}" onerror="this.src='logo.png'" class="w-9 h-9 rounded-full bg-lmnavy-900 object-cover border border-slate-700 shrink-0">
                                     <div class="truncate">
-                                        <div class="text-sm font-bold ${awayWinning ? 'text-white' : 'text-slate-300'} truncate">${away.name}</div>
+                                        <div class="text-sm font-bold ${awayWinning ? 'text-white' : 'text-slate-300'} group-hover:text-lmblue-400 transition-colors truncate">${away.name}</div>
                                         <div class="text-[10px] text-slate-500 font-semibold">${away.record}</div>
                                     </div>
                                 </div>
@@ -725,11 +765,15 @@
                                 <div class="flex items-center space-x-3 min-w-0">
                                     <img src="${home.logo}" onerror="this.src='logo.png'" class="w-9 h-9 rounded-full bg-lmnavy-900 object-cover border border-slate-700 shrink-0">
                                     <div class="truncate">
-                                        <div class="text-sm font-bold ${homeWinning ? 'text-white' : 'text-slate-300'} truncate">${home.name}</div>
+                                        <div class="text-sm font-bold ${homeWinning ? 'text-white' : 'text-slate-300'} group-hover:text-lmblue-400 transition-colors truncate">${home.name}</div>
                                         <div class="text-[10px] text-slate-500 font-semibold">${home.record}</div>
                                     </div>
                                 </div>
                                 <div class="text-lg font-black font-mono ${homeWinning ? 'text-emerald-400' : 'text-slate-200'}">${homeScore}</div>
+                            </div>
+
+                            <div class="pt-1 flex items-center justify-end text-[10px] font-bold uppercase tracking-wider text-slate-500 group-hover:text-lmblue-400 transition-colors">
+                                <span>View Player Boxscore <i class="fa-solid fa-chevron-right ml-1 text-[9px]"></i></span>
                             </div>
                         </div>
                     `;
@@ -744,6 +788,133 @@
                         Could not load live ESPN scores for League #140046. Ensure your league is set to <strong>Make League Viewable to Public = Yes</strong> in ESPN LM Settings, or connect a proxy URL.
                     </div>`;
             }
+        }
+
+        function parseTeamRoster(matchupSide, teamInfo) {
+            const rawEntries = matchupSide?.rosterForCurrentScoringPeriod?.entries || teamInfo?.rosterEntries || [];
+            const players = rawEntries.map(e => {
+                const playerObj = e.playerPoolEntry?.player || e.player || {};
+                const slotId = e.lineupSlotId;
+                const slotMeta = SLOT_MAP[slotId] || { label: 'FLEX', order: 50 };
+                const posName = POS_MAP[playerObj.defaultPositionId] || '';
+
+                // Extract live fantasy points for this scoring period
+                let pts = e.playerPoolEntry?.appliedStatTotal;
+                if (pts === undefined && Array.isArray(playerObj.stats)) {
+                    const actualStat = playerObj.stats.find(s => s.statSourceId === 0 && (s.scoringPeriodId === currentScoringWeek || !s.scoringPeriodId));
+                    if (actualStat && actualStat.appliedTotal !== undefined) pts = actualStat.appliedTotal;
+                }
+                pts = (pts ?? 0).toFixed(2);
+
+                const headshot = playerObj.defaultPositionId === 16
+                    ? 'logo.png'
+                    : `https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/${playerObj.id}.png&w=96&h=70&cb=1`;
+
+                return {
+                    name: playerObj.fullName || 'Unknown Player',
+                    slot: slotMeta.label,
+                    order: slotMeta.order,
+                    isStarter: slotId !== 20 && slotId !== 21,
+                    pos: posName,
+                    pts: pts,
+                    headshot: headshot
+                };
+            });
+
+            players.sort((a, b) => a.order - b.order);
+            return {
+                starters: players.filter(p => p.isStarter),
+                bench: players.filter(p => !p.isStarter)
+            };
+        }
+
+        function renderPlayerRows(playersList) {
+            if (!playersList || playersList.length === 0) {
+                return `<div class="text-xs text-slate-500 italic py-3 text-center">No active roster data available for this period.</div>`;
+            }
+            return playersList.map(p => `
+                <div class="flex items-center justify-between py-2 px-3 rounded-xl bg-lmnavy-900/90 border border-slate-800/80">
+                    <div class="flex items-center space-x-2.5 min-w-0">
+                        <span class="w-10 text-center text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-lmblue-500/15 text-lmblue-400 border border-lmblue-500/30 shrink-0">${p.slot}</span>
+                        <img src="${p.headshot}" onerror="this.src='logo.png'" class="w-8 h-8 rounded-full bg-lmnavy-950 object-cover border border-slate-700 shrink-0">
+                        <div class="truncate">
+                            <div class="text-xs sm:text-sm font-bold text-white truncate">${p.name}</div>
+                            <div class="text-[10px] text-slate-400 font-medium">${p.pos}</div>
+                        </div>
+                    </div>
+                    <div class="text-sm font-black font-mono text-emerald-400 ml-2 shrink-0">${p.pts}</div>
+                </div>
+            `).join('');
+        }
+
+        function openMatchupModal(index) {
+            const m = liveMatchupsCache[index];
+            if (!m) return;
+
+            const awayInfo = liveTeamsMap[m.away?.teamId] || { name: 'Away Team', logo: 'logo.png', record: '' };
+            const homeInfo = liveTeamsMap[m.home?.teamId] || { name: 'Home Team', logo: 'logo.png', record: '' };
+
+            const awayScore = (m.away?.totalPointsLive ?? m.away?.totalPoints ?? 0).toFixed(2);
+            const homeScore = (m.home?.totalPointsLive ?? m.home?.totalPoints ?? 0).toFixed(2);
+
+            const awayRoster = parseTeamRoster(m.away, awayInfo);
+            const homeRoster = parseTeamRoster(m.home, homeInfo);
+
+            document.getElementById('matchupModalTitle').textContent = `Week ${currentScoringWeek} Boxscore — ${awayInfo.name} vs. ${homeInfo.name}`;
+
+            document.getElementById('matchupModalBody').innerHTML = `
+                <!-- Scoreboard Banner -->
+                <div class="bg-lmnavy-950 border border-slate-800 rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                    <div class="flex items-center justify-between bg-lmnavy-900/70 p-3 rounded-xl border border-slate-800">
+                        <div class="flex items-center space-x-3 min-w-0">
+                            <img src="${awayInfo.logo}" onerror="this.src='logo.png'" class="w-10 h-10 rounded-full object-cover border border-lmblue-500/40 shrink-0">
+                            <div class="truncate">
+                                <div class="text-sm font-black text-white truncate">${awayInfo.name}</div>
+                                <div class="text-[10px] text-slate-400 font-semibold">${awayInfo.record}</div>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black font-mono text-lmblue-400 ml-2">${awayScore}</div>
+                    </div>
+                    <div class="flex items-center justify-between bg-lmnavy-900/70 p-3 rounded-xl border border-slate-800">
+                        <div class="flex items-center space-x-3 min-w-0">
+                            <img src="${homeInfo.logo}" onerror="this.src='logo.png'" class="w-10 h-10 rounded-full object-cover border border-lmred-500/40 shrink-0">
+                            <div class="truncate">
+                                <div class="text-sm font-black text-white truncate">${homeInfo.name}</div>
+                                <div class="text-[10px] text-slate-400 font-semibold">${homeInfo.record}</div>
+                            </div>
+                        </div>
+                        <div class="text-2xl font-black font-mono text-lmred-400 ml-2">${homeScore}</div>
+                    </div>
+                </div>
+
+                <!-- Starting Lineups -->
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-lmblue-400 mb-3 flex items-center">
+                        <i class="fa-solid fa-bolt mr-1.5"></i> Starting Lineups
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="space-y-1.5">${renderPlayerRows(awayRoster.starters)}</div>
+                        <div class="space-y-1.5">${renderPlayerRows(homeRoster.starters)}</div>
+                    </div>
+                </div>
+
+                <!-- Bench Players -->
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center">
+                        <i class="fa-solid fa-chair mr-1.5"></i> Bench / Reserve
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-80">
+                        <div class="space-y-1.5">${renderPlayerRows(awayRoster.bench)}</div>
+                        <div class="space-y-1.5">${renderPlayerRows(homeRoster.bench)}</div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('matchupModal').classList.remove('hidden');
+        }
+
+        function closeMatchupModal() {
+            document.getElementById('matchupModal').classList.add('hidden');
         }
 
         // H2H LOGIC
