@@ -664,7 +664,8 @@
                 if (masterDraftData[y]) {
                     masterDraftData[y].forEach(p => {
                         if (teamVal !== 'ALL' && p.team !== teamVal) return;
-                        if (roundVal !== 'ALL' && !p.round.includes(roundVal)) return;
+                        if (roundVal !== 'ALL' && p.round !== 'Round ' + roundVal) return;
+
                         if (searchVal !== '' && !p.player.toLowerCase().includes(searchVal)) return;
                         matches.push({...p, year: y});
                     });
